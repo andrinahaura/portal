@@ -23,6 +23,7 @@
     <title>@yield('title', 'PORTAL VIVAT')</title>
     @include('layouts.partials.styles')
     @yield('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 {{-- end::head --}}
 
@@ -38,6 +39,7 @@
         <div class="container-fluid py-4">
             @yield('content')
             @include('layouts.partials.footer')
+            @yield('footer')
         </div>
         {{-- end::content --}}
 

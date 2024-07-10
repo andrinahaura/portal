@@ -104,8 +104,8 @@ Ext Phone
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
           <a href="../../pages/authentication/signin/illustration.html" class="nav-link text-body font-weight-bold px-0" target="_blank">
-            <i class="fa fa-user me-sm-1"></i>
-            <span class="d-sm-inline d-none">Sign In</span>
+            <i class="fa fa-sign-out-alt me-sm-1"></i>
+            <span class="d-sm-inline d-none">Log Out</span>
           </a>
         </li>
 
