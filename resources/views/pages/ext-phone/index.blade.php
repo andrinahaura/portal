@@ -103,10 +103,10 @@ Ext Phone
 
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
-          <a href="../../pages/authentication/signin/illustration.html" class="nav-link text-body font-weight-bold px-0" target="_blank">
+          <form href="../../pages/authentication/signin/illustration.html" class="nav-link text-body font-weight-bold px-0" target="_blank">
             <i class="fa fa-sign-out-alt me-sm-1"></i>
             <span class="d-sm-inline d-none">Log Out</span>
-          </a>
+          </form>
         </li>
 
         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">

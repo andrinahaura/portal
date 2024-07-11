@@ -29,6 +29,15 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   color: #ffffff;
 }
 
+.textbaru li{
+  color: #ffffff !important;
+}
+
+.textwhite {
+  color: #ffffff !important;
+}
+
+
 .menuwhite {
   background-color: #ffffff !important;
 }
@@ -36,13 +45,13 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 @endsection
 
 @section('navbar')
-<nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
+<nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 blur shadow-blur shadow-none border-radius-xl z-index-sticky bg-gradient-primary" id="navbarBlur" data-scroll="true" type="blur">
   <div class="container-fluid py-1 px-3">
-    <nav aria-label="breadcrumb ">
-      <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+    <nav aria-label="breadcrumb" class="col-md-2 me-3">
+      <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0">
         <li class="breadcrumb-item text-sm">
           <a class="opacity-3 text-dark" href="javascript:;">
-            <svg width="12px" height="12px" class="mb-1" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            {{-- <svg width="12px" height="12px" class="mb-1" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <title>shop </title>
               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g transform="translate(-1716.000000, -439.000000)" fill="#252f40" fill-rule="nonzero">
@@ -54,21 +63,25 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
                   </g>
                 </g>
               </g>
-            </svg>
+            </svg> --}}
+            {{-- <svg xmlns="http://www.w3.org/2000/svg" height="14px" viewBox="0 -960 960 960" width="14px" fill="#fff">
+              <path d="M240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h480q33 0 56.5 23.5T800-800v640q0 33-23.5 56.5T720-80H240Zm200-720v245q0 12 9.5 17.5t20.5-.5l49-29q10-6 20.5-6t20.5 6l49 29q11 6 21 .5t10-17.5v-245H440Z"/>
+            </svg> --}}
           </a>
         </li>
-        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Default</li>
+        {{-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li> --}}
+        <li class="text-sm text-white active" aria-current="page">My Program</li>
+        
       </ol>
-      <h6 class="font-weight-bolder mb-0">Download</h6>
+      <h6 class="font-weight-bolder text-white mb-0 px-0 ">Booking Meeting</h6>
     </nav>
 
-    <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
-      <a href="javascript:;" class="nav-link text-body p-0">
-        <div class="sidenav-toggler-inner">
-          <i class="sidenav-toggler-line"></i>
-          <i class="sidenav-toggler-line"></i>
-          <i class="sidenav-toggler-line"></i>
+    <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none text-white">
+      <a href="javascript:;" class="nav-link text-white p-0">
+        <div class="sidenav-toggler-inner" style="color: white;">
+          <i class="sidenav-toggler-line" style="background-color: white;"></i>
+          <i class="sidenav-toggler-line" style="background-color: white;"></i>
+          <i class="sidenav-toggler-line" style="background-color: white;"></i>
         </div>
       </a>
     </div>
@@ -83,18 +96,18 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
       <ul class="navbar-nav  justify-content-end">
         <li class="nav-item d-flex align-items-center">
-          <a href="../../pages/authentication/signin/illustration.html" class="nav-link text-body font-weight-bold px-0" target="_blank">
-            <i class="fa fa-sign-out-alt me-sm-1"></i>
-            <span class="d-sm-inline d-none">Log Out</span>
+          <a href="../../pages/authentication/signin/illustration.html" class="nav-link text-white font-weight-bold px-0" target="_blank">
+            <i class="fa fa-sign-out-alt me-sm-1" style="color: white;"></i>
+            <span class="d-sm-inline d-none" style="color: white;">Log Out</span>
           </a>
         </li>
 
-        <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-          <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-            <div class="sidenav-toggler-inner">
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
-              <i class="sidenav-toggler-line"></i>
+        <li class="nav-item d-xl-none ps-3 d-flex align-items-center text-white">
+          <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+            <div class="sidenav-toggler-inner" style="color: white;">
+              <i class="sidenav-toggler-line" style="background-color: white;"></i>
+              <i class="sidenav-toggler-line" style="background-color: white;"></i>
+              <i class="sidenav-toggler-line" style="background-color: white;"></i>
             </div>
           </a>
         </li>
@@ -106,273 +119,7 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 @endsection
 
 @section('content')
-
-<div class="row mt-3">
-  <div class="col-lg-12 position-relative">
-    <div class="card">
-      <div class="card-header pb-0 p-3">
-        <div class="d-flex justify-content-between">
-          <h6 class="mb-2">Format Request</h6>
-        </div>
-      </div>
-      <div class="table-responsive">
-        <table class="table align-items-center ">
-          <tbody>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr class="">
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row mt-3">
-  <div class="col-lg-12 position-relative">
-    <div class="card">
-      <div class="card-header pb-0 p-3">
-        <div class="d-flex justify-content-between">
-          <h6 class="mb-2">Format Request</h6>
-        </div>
-      </div>
-      <div class="table-responsive">
-        <table class="table align-items-center ">
-          <tbody>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr class="">
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row mt-3">
-  <div class="col-lg-12 position-relative">
-    <div class="card">
-      <div class="card-header pb-0 p-3">
-        <div class="d-flex justify-content-between">
-          <h6 class="mb-2">Format Request</h6>
-        </div>
-      </div>
-      <div class="table-responsive">
-        <table class="table align-items-center ">
-          <tbody>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            <tr class="">
-              <td class="">
-                <div class="d-flex px-2 py-2 align-items-center">
-                  <div class="ms-4">
-                    <h6 class="text-sm mb-0">Form Klaim Pengobatan Karyawan</h6>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle text-sm">
-                <div class="col text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path  d="M200-160h560q17 0 28.5 11.5T800-120q0 17-11.5 28.5T760-80H200q-17 0-28.5-11.5T160-120q0-17 11.5-28.5T200-160Zm280-105q-9 0-17.5-4T448-281L250-535q-15-20-4-42.5t36-22.5h78v-240q0-17 11.5-28.5T400-880h160q17 0 28.5 11.5T600-840v240h78q25 0 36 22.5t-4 42.5L512-281q-6 8-14.5 12t-17.5 4Z"/></svg>
-                </div>
-              </td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+<iframe src="https://vivat.id/tentang-kami" width="100%" height="600" frameborder="0" style="border:0;"></iframe>
 @endsection
 
 @section('scripts')
