@@ -20,10 +20,6 @@
             color: #ffffff;
             background-image: linear-gradient(310deg, #750b30 50%, #bd005f 100%) !important;
             box-shadow: inset 0 0px 3px rgba(117, 11, 48, 0.3), 0 5px 10px rgba(0, 0, 0, 0.1) !important;
-
-
-
-
         }
 
         .textbaru h6 {
@@ -32,6 +28,43 @@
 
         .menuwhite {
             background-color: #ffffff !important;
+        }
+
+        .card-dashboard {
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+            box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+            --bs-card-spacer-y: 1rem;
+            --bs-card-spacer-x: 1rem;
+            --bs-card-title-spacer-y: 0.5rem;
+            --bs-card-border-width: 0;
+            --bs-card-border-color: rgba(0, 0, 0, 0.125);
+            --bs-card-border-radius: 1rem;
+            --bs-card-box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+            --bs-card-inner-border-radius: 1rem;
+            --bs-card-cap-padding-y: 0.5rem;
+            --bs-card-cap-padding-x: 1rem;
+            --bs-card-cap-bg: #fff;
+            --bs-card-cap-color: ;
+            --bs-card-height: ;
+            --bs-card-color: ;
+            --bs-card-bg: #fff;
+            --bs-card-img-overlay-padding: 1rem;
+            --bs-card-group-margin: 0.75rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            height: var(--bs-card-height);
+            word-wrap: break-word;
+            background-color: var(--bs-card-bg);
+            background-clip: border-box;
+            border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+            border-radius: var(--bs-card-border-radius);
+        }
+
+        .card-dashboard:hover {
+            transform: translateY(-5px); /* Menggeser card ke atas */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat */
         }
     </style>
 @endsection
@@ -109,8 +142,7 @@
                     </div>
                     <ul class="navbar-nav justify-content-end">
                         <li class="nav-item d-flex align-items-center">
-                            <a href=""
-                                class="nav-link text-white font-weight-bold px-0" target="_blank">
+                            <a href="#" class="nav-link text-white font-weight-bold px-0" target="_blank">
                                 <i class="fa fa-sign-out-alt me-sm-1"></i>
                                 <span class="d-sm-inline d-none">Log Out</span>
                             </a>
@@ -300,7 +332,7 @@
     <div class="row">
         <div class="col-lg-12 position-relative">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
                     <div class="card mb-4">
                         <div class="card-body p-3">
                             <div class="row">
@@ -320,10 +352,49 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
+                @foreach ( $dashboard as $dashboard )
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="your-link-here" class="card-body p-3 text-decoration-none text-dark">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <div class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                            {!! $dashboard->svg !!}
+                                        </svg>
+                                    </div>
+                                    <div class="">
+                                        <p class="mb-0 text-capitalize font-weight-bold">{{ $dashboard->name }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+                {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                    <div class="card-dashboard mb-4">
+                        <a href="your-link-here" class="card-body p-3 text-decoration-none text-dark">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <div class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                            <path d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
+                                        </svg>
+                                    </div>
+                                    <div class="">
+                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div> --}}
+{{--                 
+                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('download.index')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -339,12 +410,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('extphone.index')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -360,12 +431,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                </div> --}}
+                {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
                     <div class="card mb-4">
-                        <div class="card-body p-3">
+                        <a href="your-link-here" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -381,12 +452,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                </div> --}}
+                {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.booking_meeting')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -402,12 +473,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.budget')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -423,12 +494,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.employee_self_service')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -444,12 +515,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.mailblast')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -465,12 +536,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.request_magang')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -486,12 +557,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{route('program.e_audit')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -507,12 +578,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.e_leave')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -528,12 +599,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card mb-4">
-                        <div class="card-body p-3">
+                    <div class="card-dashboard mb-4">
+                        <a href="{{ route('program.e_travel')}}" class="card-body p-3 text-decoration-none text-dark">
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <div
@@ -549,15 +620,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 @endsection
 
-@section('footer')
+{{-- @section('footer')
 <footer class="footer pt-7">
     <div class="container-fluid">
       <div class="row align-items-center justify-content-lg-between">
@@ -567,30 +638,12 @@
               document.write(new Date().getFullYear())
             </script>,
             made by
-            {{-- <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
-            for a better web. --}}
           </div>
         </div>
-        {{-- <div class="col-lg-6">
-          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
-            </li>
-          </ul>
-        </div> --}}
       </div>
     </div>
   </footer>
-@endsection
+@endsection --}}
 
 @section('scripts')
 @endsection

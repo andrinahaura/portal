@@ -36,8 +36,25 @@
 <body class="">
   
   <main class="main-content  mt-0">
+    
     <section>
+        
       <div class="page-header min-vh-100">
+
+        <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../../../assets/img/curved-images/curved11.jpg');">
+            <span class="mask bg-gradient-primary opacity-6"></span>
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-5 text-center mx-auto">
+                  <h1 class="text-white mb-2 mt-5">Welcome!</h1>
+                  <img class="max-width-200 w-100 position-relative z-index-2" src="../../../assets/img/logo_antvgo_blank.png" alt="chat-img">
+      
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
         <div class="container">
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">

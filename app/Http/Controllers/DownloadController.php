@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\File;
+use App\Models\FileType;
 
 class DownloadController extends Controller
 {
@@ -13,7 +15,9 @@ class DownloadController extends Controller
      */
     public function index()
     {
-        return view('pages.download.index');
+        $fileTypes = FileType::with('files')->get();  
+ 
+        return view('pages.download.index', compact('fileTypes') );
     }
 
     /**

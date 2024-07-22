@@ -110,7 +110,7 @@ transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 @endsection
 
 @section('content')
-<iframe src="https://vivat.id/tentang-kami" width="100%" height="600" frameborder="0" style="border:0;"></iframe>
+<iframe src="{{ $url }}" width="100%" height="600" frameborder="0" style="border:0;"></iframe>
 
 @endsection
 

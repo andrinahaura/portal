@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Phone;
 
 class ExtPhoneController extends Controller
 {
@@ -13,7 +14,8 @@ class ExtPhoneController extends Controller
      */
     public function index()
     {
-        return view('pages.ext-phone.index');
+        $Phones = Phone::all();
+        return view('pages.ext-phone.index', compact('Phones'));
     }
 
     /**
