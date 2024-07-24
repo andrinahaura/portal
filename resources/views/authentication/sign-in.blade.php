@@ -167,6 +167,10 @@
         .position-absolute {
             position: absolute;
         }
+
+        #mobile {
+          display: none;
+        }
     </style>
 </head>
 
@@ -227,52 +231,8 @@
 
             </div>
         </section>
+
         <section id="desktop">
-            {{-- <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('../../../assets/img/curved-images/curved11.jpg');" id="">
-        <span class="mask bg-gradient-primary opacity-6"></span>
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-5 text-center mx-auto">
-              <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-              <img class="max-width-200 w-100 position-relative z-index-2" src="../../../assets/img/logo_antvgo_blank.png" alt="chat-img">
-  
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-          <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
-            <div class="card z-index-0">
-              <div class="card-header text-center pt-4">
-                <h5>Sign in</h5>
-              </div>
-            
-              <div class="card-body">
-                <form role="form" class="text-start">
-                  <div class="mb-3 position-relative">
-                    <input type="email" class="form-control pl-5" placeholder="username" aria-label="Email">
-                    <i class="fas fa-user position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
-  
-                  </div>
-                  <div class="mb-3 position-relative">
-                    <input type="password" class="form-control"  id="password" placeholder="Password" aria-label="Password">
-                    <i class="fas fa-eye position-absolute" id="togglePassword" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
-  
-                  </div>
-             
-                  <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-3">Sign in</button>
-                  </div>
-               
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-  
-      </div> --}}
             <div class="page-header min-vh-100">
                 <div class="container">
                     <div class="row">

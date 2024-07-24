@@ -12,10 +12,25 @@ class ExtPhoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // public function index()
+    // {
+    //     $Phones = Phone::all();
+    //     $departments = Phone::select('department')->distinct()->pluck('department');
+    //     return view('pages.ext-phone.index', compact('Phones', 'departments'));
+    // }
+
+    public function index(Request $request)
     {
-        $Phones = Phone::all();
-        return view('pages.ext-phone.index', compact('Phones'));
+        $department = $request->input('department');
+        
+        if ($department) {
+            $phones = Phone::where('department', $department)->get();
+        } else {
+            $phones = Phone::all();
+        }
+
+        $departments = Phone::select('department')->distinct()->pluck('department');
+        return view('pages.ext-phone.index', compact('phones', 'departments'));
     }
 
     /**
