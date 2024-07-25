@@ -47,7 +47,7 @@
               <h1 class="display-1 text-bolder text-gradient text-danger fadeIn1 fadeInBottom mt-5">Error</h1>
               <h2 class="fadeIn3 fadeInBottom opacity-8">Erm. Page not found</h2>
               <p class="lead opacity-6 fadeIn2 fadeInBottom">We suggest you to go to the homepage while we solve this issue.</p>
-              <button type="button" class="btn bg-gradient-dark mt-4 fadeIn2 fadeInBottom">Go to Homepage</button>
+              <a href="{{ route('dashboard.index')}}" type="button" class="btn bg-gradient-dark mt-4 fadeIn2 fadeInBottom">Go to Homepage</a>
             </div>
             <div class="col-lg-6 my-auto">
               <img class="w-100 fadeIn1 fadeInBottom" src="../../../assets/img/errorpage.jpg" alt="500-error">
