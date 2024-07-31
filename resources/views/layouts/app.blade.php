@@ -29,7 +29,7 @@
 
 <body class="g-sidenav-show  bg-gray-100">
     {{-- begin::aside --}}
-    @include('layouts.partials.sidebar')
+    {{-- @include('layouts.partials.sidebar') --}}
     {{-- end::aside --}}
     <main class="main-content position-relative  h-100 border-radius-lg ">
         <!-- begin::Navbar -->

@@ -20,7 +20,9 @@
             color: #ffffff;
             /* background-image: linear-gradient(310deg, #750b30 50%, #bd005f 100%) !important;
       box-shadow: inset 0 0px 1px 1px rgba(117, 11, 48, 0.5), 0 20px 27px 0 rgba(0, 0, 0, 0.05) !important; */
-            background-image: linear-gradient(310deg, #750b30 50%, #bd005f 100%) !important;
+            /* background-image: linear-gradient(310deg, #750b30 50%, #bd005f 100%) !important; */
+            background-image: linear-gradient(310deg, #750b30 10%, #330513 100%) !important;
+
             box-shadow: inset 0 0px 3px rgba(117, 11, 48, 0.3), 0 5px 10px rgba(0, 0, 0, 0.1) !important;
             transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
@@ -57,7 +59,7 @@
                 </ol>
             </nav>
 
-            <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
+            {{-- <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
                 <a href="javascript:;" class="nav-link text-body p-0">
                     <div class="sidenav-toggler-inner">
                         <i class="sidenav-toggler-line"></i>
@@ -65,7 +67,7 @@
                         <i class="sidenav-toggler-line"></i>
                     </div>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -78,15 +80,17 @@
                 <ul class="navbar-nav  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
                         <a href="">
-                            <form href="../../pages/authentication/signin/illustration.html"
-                                class="nav-link text-body font-weight-bold px-0" target="_blank">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-link text-white font-weight-bold px-0">
+                                @csrf
+                            <button type="submit" class="btn-logout nav-link text-white font-weight-bold px-0" style="">
                                 <i class="fa fa-sign-out-alt me-sm-1"></i>
                                 <span class="d-sm-inline d-none">Log Out</span>
-                            </form>
+                            </button>
+                            </form>  
                         </a>
                     </li>
 
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                    {{-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                             <div class="sidenav-toggler-inner">
                                 <i class="sidenav-toggler-line"></i>
@@ -94,7 +98,7 @@
                                 <i class="sidenav-toggler-line"></i>
                             </div>
                         </a>
-                    </li>
+                    </li> --}}
 
                 </ul>
             </div>
@@ -140,7 +144,7 @@
                                                     <h6 class="text-sm mb-0">{{ $file->name }}</h6>
                                                 </div>
                                                 <div class="ms-1">
-                                                    <a href="your-link-here" class="icon-link" title="Download">
+                                                    <a href="{{ env('URL_FILE') . $file->file_dir }}" class="icon-link" title="Download" download target="_blank">
                                                         <svg xmlns="http://www.w3.org/2000/svg" height="24px"
                                                             viewBox="0 -960 960 960" width="24px" fill="#344767">
                                                             <path

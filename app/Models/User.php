@@ -17,10 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = 'sys_users';
+
     protected $fillable = [
-        'name',
-        'email',
+        'username',
         'password',
+        'nickname',
+        'employee_id',
+        'email',
     ];
 
     /**
@@ -41,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function myPrograms(){
+        
+        return $this->hasMany(MyProgram::class);
+    }
 }

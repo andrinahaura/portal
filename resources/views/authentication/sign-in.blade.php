@@ -241,23 +241,25 @@
                                 <div class="card-header pb-0 text-start">
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">Enter your email and password to sign in</p>
+                                    @include('layouts.partials.messages')
                                 </div>
                                 <div class="card-body">
-                                    <form role="form">
+                                    <form role="form" action="{{ route('login.submit') }}" method="POST">
+                                      @csrf
                                         <div class="mb-3 position-relative">
-                                            <input type="email" class="form-control form-control-lg"
-                                                placeholder="Email" aria-label="Email">
+                                            <input type="text" class="form-control form-control-lg"
+                                                placeholder="Email or username" aria-label="Email" name="identity">
                                             <i class="fas fa-user position-absolute"
                                                 style="top: 50%; right: 11px; transform: translateY(-50%); cursor: pointer;"></i>
                                         </div>
                                         <div class="mb-3 position-relative">
                                             <input type="password" id="passworddesktop" class="form-control form-control-lg"
-                                                placeholder="Password" aria-label="Password">
+                                                placeholder="Password" aria-label="Password" name="password">
                                             <i class="fas fa-eye position-absolute" id="togglePassworddesktop"
                                                 style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
                                         </div>
                                         <div class="text-center">
-                                            <button type="button"
+                                            <button type="submit"
                                                 class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign
                                                 in</button>
                                         </div>

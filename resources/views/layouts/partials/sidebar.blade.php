@@ -1,86 +1,113 @@
-
 @php
-use App\Models\MyProgram;
-  $title = $title ?? '';
-  $myprograms = Myprogram::all();
+    use App\Models\MyProgram;
+    $title = $title ?? '';
+    $myprograms = Myprogram::all();
 @endphp
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-primary " id="sidenav-main">
+<aside
+    class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-primary "
+    id="sidenav-main">
     <div class="sidenav-header ">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard-pro/pages/dashboards/default.html " target="_blank">
-        <img src="../../assets/img/logo_antvgo_blank.png" class="navbar-brand-img h-100" alt="main_logo">
-        <span class="ms-1 font-weight-bold text-white">Vivat Go</span>
-      </a>
+        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
+            aria-hidden="true" id="iconSidenav"></i>
+        <a class="navbar-brand m-0"
+            href=" https://demos.creative-tim.com/soft-ui-dashboard-pro/pages/dashboards/default.html " target="_blank">
+            <img src="../../assets/img/logo_antvgo_blank.png" class="navbar-brand-img h-100" alt="main_logo">
+            <span class="ms-1 font-weight-bold text-white">Vivat Go</span>
+        </a>
     </div>
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto h-auto" id="sidenav-collapse-main">
-      <ul class="navbar-nav">
+        <ul class="navbar-nav">
 
-        <li class="nav-item">
-          <a data-bs-toggle="" href="{{ route('dashboard.index')}}" class="nav-link {{ Route::is('dashboard.index') ? 'active' : ''}}" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                <title>Dashboard</title>
-                <path class="color-background" d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z"/>
-            </svg>
-            </div>
-            <span class="nav-link-text ms-1">Dashboards</span>
-          </a>
-        </li>
-      
-        <li class="nav-item">
-          <a data-bs-toggle="" href="{{ route('download.index')}}" class="nav-link {{ Route::is('download.index') ? 'active' : ''}}" aria-controls="pagesExamples" role="button" aria-expanded="false">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed" >
-                <title>Download</title>
-                <path class="color-background" d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q23-81 85.5-136T440-797v323l-36-35q-11-11-27.5-11T348-508q-11 11-11 28t11 28l104 104q12 12 28 12t28-12l104-104q11-11 11.5-27.5T612-508q-11-11-27.5-11.5T556-509l-36 35v-323q103 14 171.5 92.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H260Z"/>
-            </svg>
-            </div>
-            <span class="nav-link-text ms-1">Download</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a data-bs-toggle="" href="{{ route('extphone.index')}}" class="nav-link {{ Route::is('extphone.index') ? 'active' : ''}} " aria-controls="applicationsExamples" role="button" aria-expanded="false">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                <title>Ext. Phone</title>
-                <path class="color-background" d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z"/>
-            </svg>
-            </div>
-            <span class="nav-link-text ms-1">Ext. Phone</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-
-          <a data-bs-toggle="collapse" href="#ecommerceExamples" class="nav-link {{ Route::is('program.booking_meeting') || Route::is('program.budget') || Route::is('program.employee_self_service') || Route::is('program.request_magang') || Route::is('program.mailblast') || Route::is('program.e_audit') || Route::is('program.e_leave') || Route::is('program.e_travel') || Route::is('program.fams_gs') || Route::is('program.prk_online') || Route::is('program.fams_tehnik') || Route::is('program.it_docs') ||Route::is('program.go-admin') || Route::is('program.caroline') || Route::is('program.flexben_asuransi') || Route::is('program.fams_prop') || Route::is('program.handling') || Route::is('program.program_library') || Route::is('program.corporate_secretary') || Route::is('program.cash_advance') || Route::is('program.diagram_studio') || Route::is('program.rt_pro') || Route::is('program.antv_talent') || Route::is('program.stc') || Route::is('program.apoline') || Route::is('program.lsf') || Route::is('program.t_reg') || Route::is('program.media-order') || Route::is('program.fams_wardrobe') || Route::is('program.fleet_management') || Route::is('program.onar') ? 'active' : ''}}" aria-controls="ecommerceExamples" role="button" aria-expanded="false">
-            
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                <title>My Program</title>
-                <path class="color-background" d="M400-200q-17 0-28.5-11.5T360-240q0-17 11.5-28.5T400-280h400q17 0 28.5 11.5T840-240q0 17-11.5 28.5T800-200H400Zm0-240q-17 0-28.5-11.5T360-480q0-17 11.5-28.5T400-520h400q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H400Zm0-240q-17 0-28.5-11.5T360-720q0-17 11.5-28.5T400-760h400q17 0 28.5 11.5T840-720q0 17-11.5 28.5T800-680H400ZM200-160q-33 0-56.5-23.5T120-240q0-33 23.5-56.5T200-320q33 0 56.5 23.5T280-240q0 33-23.5 56.5T200-160Zm0-240q-33 0-56.5-23.5T120-480q0-33 23.5-56.5T200-560q33 0 56.5 23.5T280-480q0 33-23.5 56.5T200-400Zm0-240q-33 0-56.5-23.5T120-720q0-33 23.5-56.5T200-800q33 0 56.5 23.5T280-720q0 33-23.5 56.5T200-640Z"/>
-            </svg>
-            </div>
-            <span class="nav-link-text ms-1">My program</span>
-          </a>
-          <div class="collapse {{ Route::is('program.booking_meeting') || Route::is('program.budget') || Route::is('program.employee_self_service') || Route::is('program.mailblast') || Route::is('program.request_magang') || Route::is('program.e_audit') || Route::is('program.e_leave') || Route::is('program.e_travel') || Route::is('program.fams_gs') || Route::is('program.prk_online') || Route::is('program.fams_tehnik') || Route::is('program.it_docs') || Route::is('program.go-admin') || Route::is('program.caroline') || Route::is('program.flexben_asuransi') || Route::is('program.fams_prop') || Route::is('program.handling') || Route::is('program.program_library') || Route::is('program.corporate_secretary') || Route::is('program.cash_advance') || Route::is('program.diagram_studio') || Route::is('program.rt_pro') || Route::is('program.antv_talent') || Route::is('program.stc') || Route::is('program.apoline') || Route::is('program.lsf') || Route::is('program.t_reg') || Route::is('program.media-order') || Route::is('program.fams_wardrobe') || Route::is('program.fleet_management') || Route::is('program.onar') ? 'show' : ''}}" id="ecommerceExamples">
-            <ul class="nav ps-3 pt-2 mb-2">
-              @foreach ( $myprograms as $program )
-              @if($program->router)
-              <li class="nav-item mt-1">
-                <a class="nav-link {{ $title == $program->slug  ? 'active' : ''}}" href="{{ route(''.$program->router.'')}}">
-                  <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3a416f">
-                      {!! $program->svg !!}
-                    </svg>
-                  </div>
-                  <span class="sidenav-normal">{{ $program->name }}<b class="caret"></b></span>
+            <li class="nav-item">
+                <a data-bs-toggle="" href="{{ route('dashboard.index') }}"
+                    class="nav-link {{ Route::is('dashboard.index') ? 'active' : '' }}"
+                    aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#e8eaed">
+                            <title>Dashboard</title>
+                            <path class="color-background"
+                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Dashboards</span>
                 </a>
-              </li>
-              @endif
-              @endforeach
-              {{-- <li class="nav-item ">
+            </li>
+
+            <li class="nav-item">
+                <a data-bs-toggle="" href="{{ route('download.index') }}"
+                    class="nav-link {{ Route::is('download.index') ? 'active' : '' }}" aria-controls="pagesExamples"
+                    role="button" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#e8eaed">
+                            <title>Download</title>
+                            <path class="color-background"
+                                d="M260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q23-81 85.5-136T440-797v323l-36-35q-11-11-27.5-11T348-508q-11 11-11 28t11 28l104 104q12 12 28 12t28-12l104-104q11-11 11.5-27.5T612-508q-11-11-27.5-11.5T556-509l-36 35v-323q103 14 171.5 92.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H260Z" />
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Download</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a data-bs-toggle="" href="{{ route('extphone.index') }}"
+                    class="nav-link {{ Route::is('extphone.index') ? 'active' : '' }} "
+                    aria-controls="applicationsExamples" role="button" aria-expanded="false">
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#e8eaed">
+                            <title>Ext. Phone</title>
+                            <path class="color-background"
+                                d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12Z" />
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">Ext. Phone</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+
+                <a data-bs-toggle="collapse" href="#ecommerceExamples"
+                    class="nav-link {{ Route::is('program.booking_meeting') ||Route::is('program.budget') ||Route::is('program.employee_self_service') ||Route::is('program.request_magang') ||Route::is('program.mailblast') ||Route::is('program.e_audit') ||Route::is('program.e_leave') ||Route::is('program.e_travel') ||Route::is('program.fams_gs') ||Route::is('program.prk_online') ||Route::is('program.fams_tehnik') ||Route::is('program.it_docs') ||Route::is('program.go-admin') ||Route::is('program.caroline') ||Route::is('program.flexben_asuransi') ||Route::is('program.fams_prop') ||Route::is('program.handling') ||Route::is('program.program_library') ||Route::is('program.corporate_secretary') ||Route::is('program.cash_advance') ||Route::is('program.diagram_studio') ||Route::is('program.rt_pro') ||Route::is('program.antv_talent') ||Route::is('program.stc') ||Route::is('program.apoline') ||Route::is('program.lsf') ||Route::is('program.t_reg') ||Route::is('program.media-order') ||Route::is('program.fams_wardrobe') ||Route::is('program.fleet_management') ||Route::is('program.onar')? 'active': '' }}"
+                    aria-controls="ecommerceExamples" role="button" aria-expanded="false">
+
+                    <div
+                        class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#e8eaed">
+                            <title>My Program</title>
+                            <path class="color-background"
+                                d="M400-200q-17 0-28.5-11.5T360-240q0-17 11.5-28.5T400-280h400q17 0 28.5 11.5T840-240q0 17-11.5 28.5T800-200H400Zm0-240q-17 0-28.5-11.5T360-480q0-17 11.5-28.5T400-520h400q17 0 28.5 11.5T840-480q0 17-11.5 28.5T800-440H400Zm0-240q-17 0-28.5-11.5T360-720q0-17 11.5-28.5T400-760h400q17 0 28.5 11.5T840-720q0 17-11.5 28.5T800-680H400ZM200-160q-33 0-56.5-23.5T120-240q0-33 23.5-56.5T200-320q33 0 56.5 23.5T280-240q0 33-23.5 56.5T200-160Zm0-240q-33 0-56.5-23.5T120-480q0-33 23.5-56.5T200-560q33 0 56.5 23.5T280-480q0 33-23.5 56.5T200-400Zm0-240q-33 0-56.5-23.5T120-720q0-33 23.5-56.5T200-800q33 0 56.5 23.5T280-720q0 33-23.5 56.5T200-640Z" />
+                        </svg>
+                    </div>
+                    <span class="nav-link-text ms-1">My program</span>
+                </a>
+                <div class="collapse {{ Route::is('program.booking_meeting') ||Route::is('program.budget') ||Route::is('program.employee_self_service') ||Route::is('program.mailblast') ||Route::is('program.request_magang') ||Route::is('program.e_audit') ||Route::is('program.e_leave') ||Route::is('program.e_travel') ||Route::is('program.fams_gs') ||Route::is('program.prk_online') ||Route::is('program.fams_tehnik') ||Route::is('program.it_docs') ||Route::is('program.go-admin') ||Route::is('program.caroline') ||Route::is('program.flexben_asuransi') ||Route::is('program.fams_prop') ||Route::is('program.handling') ||Route::is('program.program_library') ||Route::is('program.corporate_secretary') ||Route::is('program.cash_advance') ||Route::is('program.diagram_studio') ||Route::is('program.rt_pro') ||Route::is('program.antv_talent') ||Route::is('program.stc') ||Route::is('program.apoline') ||Route::is('program.lsf') ||Route::is('program.t_reg') ||Route::is('program.media-order') ||Route::is('program.fams_wardrobe') ||Route::is('program.fleet_management') ||Route::is('program.onar')? 'show': '' }}"
+                    id="ecommerceExamples">
+                    <ul class="nav ps-3 pt-2 mb-2">
+                        @foreach ($myprograms as $program)
+                            @if ($program->router)
+                                <li class="nav-item mt-1">
+                                    <a class="nav-link {{ $title == $program->slug ? 'active' : '' }}"
+                                        href="{{ route('' . $program->router . '') }}">
+                                        <div
+                                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                viewBox="0 -960 960 960" width="24px" fill="#3a416f">
+                                                {!! $program->svg !!}
+                                            </svg>
+                                        </div>
+                                        <span class="sidenav-normal">{{ $program->name }}<b class="caret"></b></span>
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+                        {{-- <li class="nav-item ">
                 <a class="nav-link {{ Route::is('program.booking_meeting')  ? 'active' : ''}}" href="{{ route('program.booking_meeting')}}">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3a416f">
@@ -91,7 +118,7 @@ use App\Models\MyProgram;
                 </a>
               </li> --}}
 
-              {{-- <li class="nav-item  pt-1">
+                        {{-- <li class="nav-item  pt-1">
                 <a class="nav-link {{ Route::is('program.budget') ? 'active' : ''}} " href="{{ route('program.budget')}}">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#3a416f">
@@ -161,13 +188,11 @@ use App\Models\MyProgram;
                   <span class="sidenav-normal">e-Travel<b class="caret"></b></span>
                 </a>
               </li> --}}
-              
-              
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </aside>
 
- 
+
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>

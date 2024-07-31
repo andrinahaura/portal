@@ -9,3 +9,5 @@
  <!-- CSS Files -->
 <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.1.1" rel="stylesheet" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">

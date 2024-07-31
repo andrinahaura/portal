@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dashboard;
+use App\Models\MetaMenu;
 
 class DashboardController extends Controller
 {
@@ -14,8 +15,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $dashboard = Dashboard::all();
-        return view('pages.dashboard.index', compact('dashboard'));
+        $userId = auth()->user()->id;
+        $dashboard = Dashboard::where('menu_type', 'main')->get();
+        $menus = MetaMenu::with('menu')->where('user_id', $userId)->get();
+        
+        return view('pages.dashboard.index', compact('dashboard', 'menus'));
     }
 
     /**

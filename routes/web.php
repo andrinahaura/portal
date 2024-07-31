@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ExtPhoneController;
-use App\Http\Controllers\SignInController;
+// use App\Http\Controllers\SignInController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyProgramController;
+
 
 
 /*
@@ -20,8 +22,9 @@ use App\Http\Controllers\MyProgramController;
 */
 
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+// Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
+Route::group(['middleware' => 'auth'], function () {
 Route::resource('download', DownloadController::class);
 
 Route::resource('extphone', ExtPhoneController::class);
@@ -88,6 +91,16 @@ Route::get('fams-wardrobe', [MyProgramController::class, 'fams_wardrobe'])->name
 
 Route::get('fleet-management', [MyProgramController::class, 'fleet_management'])->name('program.fleet_management');
 
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+
+});
+
+Route::middleware('guest:web')->group(function () {
+    Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+});
 
 
-Route::get('signin', [SignInController::class, 'index']);
+
