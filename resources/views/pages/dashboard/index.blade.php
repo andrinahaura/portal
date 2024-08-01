@@ -133,6 +133,22 @@
             opacity: 0;
             pointer-events: none;
         }
+
+
+        @media (max-width: 768px) {
+            .col-auto.d-flex.align-items-center {
+                justify-content: center;
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .col-auto.d-flex.align-items-center {
+                justify-content: flex-end;
+                margin-left: auto;
+            }
+        }
     </style>
 @endsection
 
@@ -288,6 +304,8 @@
             <div class="page-header min-height-150 border-radius-xl mt-4 bg-gradient-primary">
                 <span class="mask bg-gradient-primary opacity-6"></span>
             </div>
+           
+         
             <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
                 <div class="row gx-4">
                     <div class="col-auto">
@@ -306,18 +324,20 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-auto ms-auto d-flex align-items-center">
-                        <div class="avatar avatar-xl position-relative me-3">
+                    <div class="col-auto d-flex align-items-center">
+                        <a href="https://link-to-page1.com" class="avatar avatar-xl position-relative me-3">
                             <img src="../../../assets/img/vivat-go.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
-                        </div>
-                        <div class="avatar avatar-xl position-relative">
+                        </a>
+                        <a href="https://link-to-page2.com" class="avatar avatar-xl position-relative">
                             <img src="../../../assets/img/vivat-go.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
+            
+
         </div>
     </div>
 @endsection
@@ -591,7 +611,7 @@
             </div>
 
         </div>
-        <button class="arrow-btn" onclick="scrollRightFunction()" >
+        <button class="arrow-btn" onclick="scrollRightFunction()">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
                 fill="#344767">
                 <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
@@ -953,7 +973,5 @@
                 });
             }
         }
-
-        
     </script>
 @endsection

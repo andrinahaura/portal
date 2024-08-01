@@ -72,58 +72,72 @@
 @endsection
 
 @section('navbar')
+<nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky"
+id="navbarBlur" data-scroll="true">
+<div class="container-fluid py-1 px-3">
+    {{-- <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5">
+            <a href="/dashboard" class="d-flex nav-link text-white align-items-center text-dark me-2">
+                <i class="fas fa-arrow-left" style="font-size: 18px; margin-right: 8px;"></i>
+            </a>
+            <h6 class="font-weight-bolder">Download</h6>
+        </ol>
+    </nav> --}}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5 d-flex align-items-center">
+            <a href="{{ route('dashboard.index') }}" class="d-flex nav-link text-white align-items-center text-dark">
+                <i class="fas fa-arrow-left" style="font-size: 18px; margin-right: 20px;"></i>
+                <h6 class="font-weight-bolder mb-0">Ext Phone</h6>
+            </a>
+        </ol>
+    </nav>
     
-    <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky"
-        id="navbarBlur" data-scroll="true">
-        <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5">
-                    <h6 class="font-weight-bolder mb-0">Ext Phone</h6>
-                </ol>
-            </nav>
 
-            <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
-                <a href="javascript:;" class="nav-link text-body p-0">
+    {{-- <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
+        <a href="javascript:;" class="nav-link text-body p-0">
+            <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+                <i class="sidenav-toggler-line"></i>
+            </div>
+        </a>
+    </div> --}}
+
+    <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+            {{-- <div class="input-group">
+  <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+  <input type="text" class="form-control" placeholder="Type here...">
+</div> --}}
+        </div>
+
+        <ul class="navbar-nav  justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+                <a href="">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-link text-white font-weight-bold px-0">
+                        @csrf
+                    <button type="submit" class="btn-logout nav-link text-white font-weight-bold px-0" style="">
+                        <i class="fa fa-sign-out-alt me-sm-1"></i>
+                        <span class="d-sm-inline d-none">Log Out</span>
+                    </button>
+                    </form>  
+                </a>
+            </li>
+
+            {{-- <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                     <div class="sidenav-toggler-inner">
                         <i class="sidenav-toggler-line"></i>
                         <i class="sidenav-toggler-line"></i>
                         <i class="sidenav-toggler-line"></i>
                     </div>
                 </a>
-            </div>
+            </li> --}}
 
-            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-
-                </div>
-
-                <ul class="navbar-nav  justify-content-end">
-                    <li class="nav-item d-flex align-items-center">
-                        <a href="">
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="nav-link text-white font-weight-bold px-0">
-                                @csrf
-                            <button type="submit" class="btn-logout nav-link text-white font-weight-bold px-0" style="">
-                                <i class="fa fa-sign-out-alt me-sm-1"></i>
-                                <span class="d-sm-inline d-none">Log Out</span>
-                            </button>
-                            </form>
-                        </a>
-                    </li>
-
-                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                        <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                            <div class="sidenav-toggler-inner">
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                                <i class="sidenav-toggler-line"></i>
-                            </div>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </ul>
+    </div>
+</div>
+</nav>    
 @endsection
 
 @section('content')
