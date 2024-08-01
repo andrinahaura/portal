@@ -65,17 +65,18 @@
                             </div>
 
                             <div class="card-body">
-                                <form role="form" class="text-start">
+                                <form role="form" action="{{ route('login.submit') }}" method="POST" class="text-start">
+                                  @csrf
                                     <div class="mb-3 position-relative">
                                         <input type="text" class="form-control pl-5" placeholder="username"
-                                            aria-label="Email">
+                                            aria-label="Email" name="identity">
                                         <i class="fas fa-user position-absolute"
                                             style="top: 50%; right: 11px; transform: translateY(-50%); cursor: pointer;"></i>
 
                                     </div>
                                     <div class="mb-3 position-relative">
                                         <input type="password" class="form-control" id="password"
-                                            placeholder="Password" aria-label="Password">
+                                            placeholder="Password" aria-label="Password" name="password">
                                         <i class="fas fa-eye position-absolute" id="togglePassword"
                                             style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
 
