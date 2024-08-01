@@ -67,7 +67,7 @@
                             <div class="card-body">
                                 <form role="form" class="text-start">
                                     <div class="mb-3 position-relative">
-                                        <input type="email" class="form-control pl-5" placeholder="username"
+                                        <input type="text" class="form-control pl-5" placeholder="username"
                                             aria-label="Email">
                                         <i class="fas fa-user position-absolute"
                                             style="top: 50%; right: 11px; transform: translateY(-50%); cursor: pointer;"></i>
