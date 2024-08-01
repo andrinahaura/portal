@@ -119,14 +119,20 @@
             padding: 10px;
             border: none;
             background-color: transparent;
+            transition: opacity 0.3s ease-in-out;
         }
 
         #cardContainer {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    white-space: nowrap;
-}
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            white-space: nowrap;
+        }
+
+        .arrow-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 @endsection
 
@@ -317,707 +323,283 @@
 @endsection
 
 @section('content')
-    <button class="btn col-12 bg-gradient-primary">Live</button>
-    {{-- <div class="row">    
-      
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal1">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-   
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-     
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+    <button class="btn col-12 bg-gradient-primary">Banner</button>
+    <h3 class="text-center mt-2 mb-2">What's On</h3>
+    <div class="carousel-container mt-3" style="position: relative; display: flex; align-items: center;">
+        <button class="arrow-btn" onclick="scrollLeftFunction()">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#344767">
+                <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+            </svg>
+        </button>
+        <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
 
-    {{-- <div class="row">    
-        <!-- pertama -->
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal1">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                    </a>
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal1">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
+                                style="object-fit: cover;">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExample1" role="button" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExample1" role="button" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </a>
+            <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-        <!-- kedua -->
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain" style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal" data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png" style="object-fit: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel2">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img class="d-block w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExample2" role="button" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExample2" role="button" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Tambahkan lebih banyak kartu dan modal dengan ID yang berbeda seperti di atas -->
-    </div> --}}
-
-    {{-- <div class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                data-bs-target="#imageModal1">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                data-bs-target="#imageModal2">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Repeat the same structure for additional cards -->
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-2 col-md-4 mb-4">
-            <div class="card card-profile card-plain"
-                style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                data-bs-toggle="modal" data-bs-target="#imageModal3">
-                <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                    <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                        <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
-                            style="object-fit: cover; background-position: 50%; background-size: cover;">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add more cards here -->
-    </div> --}}
-
-    <div class="container mt-5">
-        <div class="d-flex align-items-center">
-            <!-- Left Arrow -->
-            <button class="btn btn-primary" onclick="scrollLeftFunction()">Left</button>
-
-            <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;" data-bs-toggle="modal"
-                        data-bs-target="#imageModal1">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg" style="object-fit: cover;">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="imageModal1" tabindex="-1" aria-labelledby="imageModalLabel1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- Right Arrow -->
-            <button class="btn btn-primary" onclick="scrollRightFunction()">Right</button>
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal2">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal2" tabindex="-1" aria-labelledby="imageModalLabel2"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel1">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
+        <button class="arrow-btn" onclick="scrollRightFunction()" >
+            <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
+                fill="#344767">
+                <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+            </svg>
+        </button>
     </div>
 
-    
-
-   
-
+    <h3 class="text-center mt-2 mb-3">Menu</h3>
     <div class="row">
         <div class="col-lg-12 position-relative">
             <div class="row">
@@ -1351,27 +933,27 @@
 
     <script>
         function scrollLeftFunction() {
-    let container = document.getElementById('cardContainer');
-    // Cek apakah bisa scroll ke kiri
-    if (container.scrollLeft > 0) {
-        container.scrollBy({
-            left: -200, // Adjust the scroll amount as needed
-            behavior: 'smooth'
-        });
-    }
-}
+            let container = document.getElementById('cardContainer');
+            // Cek apakah bisa scroll ke kiri
+            if (container.scrollLeft > 0) {
+                container.scrollBy({
+                    left: -200, // Adjust the scroll amount as needed
+                    behavior: 'smooth'
+                });
+            }
+        }
 
-function scrollRightFunction() {
-    let container = document.getElementById('cardContainer');
-    // Cek apakah bisa scroll ke kanan
-    if (container.scrollLeft + container.clientWidth < container.scrollWidth) {
-        container.scrollBy({
-            left: 200, // Adjust the scroll amount as needed
-            behavior: 'smooth'
-        });
-    }
-}
+        function scrollRightFunction() {
+            let container = document.getElementById('cardContainer');
+            // Cek apakah bisa scroll ke kanan
+            if (container.scrollLeft + container.clientWidth < container.scrollWidth) {
+                container.scrollBy({
+                    left: 200, // Adjust the scroll amount as needed
+                    behavior: 'smooth'
+                });
+            }
+        }
 
-
+        
     </script>
 @endsection

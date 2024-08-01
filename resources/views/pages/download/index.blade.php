@@ -55,6 +55,12 @@
         <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5">
+                    <a href="javascript:;" onclick="window.history.back();">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000" style="margin-right: 8px;">
+                            <path d="M0 0h24v24H0V0z" fill="none"/>
+                            <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
+                        </svg>
+                    </a>
                     <h6 class="font-weight-bolder mb-0">Download</h6>
                 </ol>
             </nav>
