@@ -325,11 +325,11 @@
                         </div>
                     </div>
                     <div class="col-auto d-flex align-items-center">
-                        <a href="https://link-to-page1.com" class="avatar avatar-xl position-relative me-3">
+                        <a href="https://link-to-page1.com" class="avatar avatar-xl position-relative me-3" target="_blank">
                             <img src="../../../assets/img/vivat-go.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </a>
-                        <a href="https://link-to-page2.com" class="avatar avatar-xl position-relative">
+                        <a href="https://link-to-page2.com" class="avatar avatar-xl position-relative" target="_blank">
                             <img src="../../../assets/img/vivat-go.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </a>
@@ -444,7 +444,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -460,7 +460,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
@@ -473,7 +473,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -489,7 +489,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
@@ -502,7 +502,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -518,7 +518,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
@@ -531,7 +531,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -547,7 +547,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
@@ -559,7 +559,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -575,7 +575,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
@@ -588,7 +588,7 @@
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/another-image.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -604,7 +604,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/another-image.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
                         </div>
                     </div>
                 </div>
