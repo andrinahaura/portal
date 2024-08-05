@@ -32,7 +32,6 @@
 
         .card-dashboard {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            /* Transisi halus */
             box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
             --bs-card-spacer-y: 1rem;
             --bs-card-spacer-x: 1rem;
@@ -149,6 +148,29 @@
                 margin-left: auto;
             }
         }
+
+        .banner-img {
+            max-width: 100px;
+            width: auto;
+            height: auto;
+            z-index: 1;
+        }
+
+
+        @media (max-width: 768px) {
+            .banner-img {
+                max-width: 80% !important;
+            }
+        }
+
+        .fade-effect {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .fade-effect.is-visible {
+            opacity: 1;
+        }
     </style>
 @endsection
 
@@ -156,10 +178,7 @@
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
         <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
-            {{-- <a class="navbar-brand" href="#">
-                <img src="../../assets/img/logo_antvgo_blank.png" width="30" height="30" alt="Brand Logo">
-              </a> --}}
-            <div class="container-fluid py-1">
+            <div class="container-fluid py-1 fade-effect">
                 <a class="navbar-brand" href="#">
                     <img class="brand-logo" src="../../assets/img/logo_antvgo_blank.png" width="60" height="60"
                         alt="Brand Logo">
@@ -179,13 +198,7 @@
                     </a>
                 </div> --}}
                 <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
-                    <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-                        <div class="input-group">
-                            {{-- <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Type here..."> --}}
-                        </div>
-                    </div>
-                    <ul class="navbar-nav justify-content-end">
+                    <ul class="navbar-nav justify-content-end ms-md-auto pe-md-3 d-flex align-items-center">
                         <li class="nav-item d-flex align-items-center">
                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                 class="nav-link text-white font-weight-bold px-0">
@@ -301,12 +314,10 @@
             </div>
         </nav>
         <div class="container-fluid">
-            <div class="page-header min-height-150 border-radius-xl mt-4 bg-gradient-primary">
+            <div class="page-header min-height-150 border-radius-xl mt-4 bg-gradient-primary fade-effect">
                 <span class="mask bg-gradient-primary opacity-6"></span>
             </div>
-           
-         
-            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+            <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden fade-effect">
                 <div class="row gx-4">
                     <div class="col-auto">
                         <div class="avatar avatar-xl position-relative">
@@ -336,24 +347,36 @@
                     </div>
                 </div>
             </div>
-            
+
 
         </div>
     </div>
 @endsection
 
 @section('content')
-    <button class="btn col-12 bg-gradient-primary">Banner</button>
-    <h3 class="text-center mt-2 mb-2">What's On</h3>
+    <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 fade-effect">
+        <div class="container-fluid">
+            <div
+                class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center">
+                <img src="./assets/img/logo_antvgo_motto.png" alt="Logo" class="banner-img"
+                    style="max-width: 30%; height: 30%;">
+                <span class="mask bg-gradient-primary opacity-6"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <h3 class="text-center mt-3 mb-2 fade-effect">What's On</h3>
     <div class="carousel-container mt-3" style="position: relative; display: flex; align-items: center;">
-        <button class="arrow-btn" onclick="scrollLeftFunction()">
+        <button class="arrow-btn fade-effect" onclick="scrollLeftFunction()">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#344767">
                 <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
             </svg>
         </button>
         <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
 
-            <div class="col-lg-2 col-md-4 mb-4">
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal1">
@@ -380,13 +403,13 @@
             </div>
 
 
-            <div class="col-lg-2 col-md-4 mb-4">
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal2">
                     <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
                         <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
                                 style="object-fit: cover; background-position: 50%; background-size: cover;">
                         </a>
                     </div>
@@ -402,14 +425,158 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-lg-2 col-md-4 mb-4">
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/banner.jpeg"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/banner.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal3">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
+                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
+                                style="object-fit: cover; background-position: 50%; background-size: cover;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
@@ -438,7 +605,7 @@
             </div>
 
 
-            <div class="col-lg-2 col-md-4 mb-4">
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
@@ -466,123 +633,7 @@
                 </div>
             </div>
 
-
-            <div class="col-lg-2 col-md-4 mb-4">
-                <div class="card card-profile card-plain"
-                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                    data-bs-toggle="modal" data-bs-target="#imageModal3">
-                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
-                                style="object-fit: cover; background-position: 50%; background-size: cover;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2 col-md-4 mb-4">
-                <div class="card card-profile card-plain"
-                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                    data-bs-toggle="modal" data-bs-target="#imageModal3">
-                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
-                                style="object-fit: cover; background-position: 50%; background-size: cover;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2 col-md-4 mb-4">
-                <div class="card card-profile card-plain"
-                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                    data-bs-toggle="modal" data-bs-target="#imageModal3">
-                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
-                                style="object-fit: cover; background-position: 50%; background-size: cover;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-2 col-md-4 mb-4">
-                <div class="card card-profile card-plain"
-                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                    data-bs-toggle="modal" data-bs-target="#imageModal3">
-                    <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                        <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                            <img class="w-100 h-100 border-radius-md" src="./assets/img/vivat-go.png"
-                                style="object-fit: cover; background-position: 50%; background-size: cover;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="imageModal3" tabindex="-1" aria-labelledby="imageModalLabel3"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="imageModalLabel3">What's on</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body text-center">
-                            <img class="w-100 border-radius-md" src="./assets/img/vivat-go.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-lg-2 col-md-4 mb-4">
+            <div class="col-lg-2 col-md-4 mb-4 fade-effect">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal3">
@@ -619,161 +670,165 @@
         </button>
     </div>
 
-    <h3 class="text-center mt-2 mb-3">Menu</h3>
-    <div class="row">
-        <div class="col-lg-12 position-relative">
-            <div class="row">
-                @foreach ($dashboard as $dashboard)
-                    <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+    <h3 class="text-center mt-2 mb-3 fade-effect">Menu</h3>
+    <div class="container-fluid fade-effect">
+        <div class="row">
+            <div class="col-lg-12 position-relative">
+                <div class="row">
+                    @foreach ($dashboard as $dashboard)
+                        <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                            <div class="card-dashboard mb-4">
+                                <a href="{{ route('download.index') }}"
+                                    class="card-body p-3 text-decoration-none text-dark">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <div
+                                                class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                                    {!! $dashboard->svg !!}
+                                                </svg>
+                                            </div>
+                                            <div class="">
+                                                <p class="mb-0 text-capitalize font-weight-bold">{{ $dashboard->name }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                    @foreach ($menus as $menu)
+                        <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                            <div class="card-dashboard mb-4">
+                                <a href="{{ $menu->menu->url }}" class="card-body p-3 text-decoration-none text-dark"
+                                    target="_blank">
+                                    <div class="row">
+                                        <div class="col-12 text-center">
+                                            <div
+                                                class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                                    {!! $menu->menu->svg !!}
+                                                </svg>
+                                            </div>
+                                            <div class="">
+                                                <p class="mb-0 text-capitalize font-weight-bold">{{ $menu->menu->name }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                    {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
                         <div class="card-dashboard mb-4">
-                            <a href="{{ route('download.index') }}" class="card-body p-3 text-decoration-none text-dark">
+                            <a href="#" class="card-body p-3 text-decoration-none text-dark">
                                 <div class="row">
                                     <div class="col-12 text-center">
                                         <div
                                             class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                                                {!! $dashboard->svg !!}
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                                width="24px" fill="#e8eaed">
+                                                <path
+                                                    d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
                                             </svg>
                                         </div>
                                         <div class="">
-                                            <p class="mb-0 text-capitalize font-weight-bold">{{ $dashboard->name }}</p>
+                                            <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                @endforeach
-                @foreach ($menus as $menu)
                     <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
                         <div class="card-dashboard mb-4">
-                            <a href="{{ $menu->menu->url }}" class="card-body p-3 text-decoration-none text-dark"
-                                target="_blank">
+                            <a href="#" class="card-body p-3 text-decoration-none text-dark">
                                 <div class="row">
                                     <div class="col-12 text-center">
                                         <div
                                             class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
-                                                {!! $menu->menu->svg !!}
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                                width="24px" fill="#e8eaed">
+                                                <path
+                                                    d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
                                             </svg>
                                         </div>
                                         <div class="">
-                                            <p class="mb-0 text-capitalize font-weight-bold">{{ $menu->menu->name }}</p>
+                                            <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                @endforeach
-                {{-- <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card-dashboard mb-4">
-                        <a href="#" class="card-body p-3 text-decoration-none text-dark">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <div
-                                        class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#e8eaed">
-                                            <path
-                                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
-                                        </svg>
-                                    </div>
-                                    <div class="">
-                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card-dashboard mb-4">
-                        <a href="#" class="card-body p-3 text-decoration-none text-dark">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <div
-                                        class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#e8eaed">
-                                            <path
-                                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
-                                        </svg>
-                                    </div>
-                                    <div class="">
-                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                    <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                        <div class="card-dashboard mb-4">
+                            <a href="#" class="card-body p-3 text-decoration-none text-dark">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <div
+                                            class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                                width="24px" fill="#e8eaed">
+                                                <path
+                                                    d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="">
+                                            <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card-dashboard mb-4">
-                        <a href="#" class="card-body p-3 text-decoration-none text-dark">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <div
-                                        class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#e8eaed">
-                                            <path
-                                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
-                                        </svg>
-                                    </div>
-                                    <div class="">
-                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                    <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                        <div class="card-dashboard mb-4">
+                            <a href="#" class="card-body p-3 text-decoration-none text-dark">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <div
+                                            class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                                width="24px" fill="#e8eaed">
+                                                <path
+                                                    d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="">
+                                            <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card-dashboard mb-4">
-                        <a href="#" class="card-body p-3 text-decoration-none text-dark">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <div
-                                        class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#e8eaed">
-                                            <path
-                                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
-                                        </svg>
-                                    </div>
-                                    <div class="">
-                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                    <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
+                        <div class="card-dashboard mb-4">
+                            <a href="#" class="card-body p-3 text-decoration-none text-dark">
+                                <div class="row">
+                                    <div class="col-12 text-center">
+                                        <div
+                                            class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                                width="24px" fill="#e8eaed">
+                                                <path
+                                                    d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="">
+                                            <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4">
-                    <div class="card-dashboard mb-4">
-                        <a href="#" class="card-body p-3 text-decoration-none text-dark">
-                            <div class="row">
-                                <div class="col-12 text-center">
-                                    <div
-                                        class="icon-dashboard icon-shape-dashboard bg-gradient-primary shadow text-center d-flex align-items-center justify-content-center border-radius-md mb-3 mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#e8eaed">
-                                            <path
-                                                d="M560-600q-17 0-28.5-11.5T520-640v-160q0-17 11.5-28.5T560-840h240q17 0 28.5 11.5T840-800v160q0 17-11.5 28.5T800-600H560ZM160-440q-17 0-28.5-11.5T120-480v-320q0-17 11.5-28.5T160-840h240q17 0 28.5 11.5T440-800v320q0 17-11.5 28.5T400-440H160Zm400 320q-17 0-28.5-11.5T520-160v-320q0-17 11.5-28.5T560-520h240q17 0 28.5 11.5T840-480v320q0 17-11.5 28.5T800-120H560Zm-400 0q-17 0-28.5-11.5T120-160v-160q0-17 11.5-28.5T160-360h240q17 0 28.5 11.5T440-320v160q0 17-11.5 28.5T400-120H160Z" />
-                                        </svg>
-                                    </div>
-                                    <div class="">
-                                        <p class="mb-0 text-capitalize font-weight-bold">Dashboard</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div> --}}
+                            </a>
+                        </div>
+                    </div> --}}
 
+                </div>
             </div>
         </div>
     </div>
@@ -863,69 +918,32 @@
           </div>
         </div>
     </div> --}}
-    <div class="container">
+    <h3 class="text-center mt-2 mb-3">Today's Birthday</h3>
+    <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-lg-3 text-center">
-                {{-- <img src="../../../assets/img/confeti3.png" alt="Left Image" class="img-fluid"> --}}
-            </div>
+
             <div class="col-12 col-lg-6 mt-lg-0 mt-4">
                 <div class="card h-100">
-                    <div class="card-header pb-0 p-3">
-                        <h6 class="mb-0">Today's Birthday</h6>
-                    </div>
+
                     <div class="card-body p-3">
                         <ul class="list-group">
-                            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
+                            <li class="list-group-item border-0 d-flex align-items-center px-0">
                                 <div class="avatar avatar-xl position-relative me-3">
                                     <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
                                         class="border-radius-lg shadow">
                                 </div>
                                 <div class="d-flex align-items-start flex-column justify-content-center">
                                     <h6 class="mb-0 text-sm">Sophie B.</h6>
-                                    {{-- <p class="mb-0 text-xs">Hi! I need more information..</p> --}}
+                                    <p class="mb-0 text-xs">Hi! I need more information..</p>
                                 </div>
                                 {{-- <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a> --}}
                             </li>
-                            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/marie.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Anne Marie</h6>
-                                    {{-- <p class="mb-0 text-xs">Awesome work, can you..</p> --}}
-                                </div>
-                                {{-- <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a> --}}
-                            </li>
-                            <li class="list-group-item border-0 d-flex align-items-center px-0 mb-2">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/team-4.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Peterson</h6>
-                                    {{-- <p class="mb-0 text-xs">Have a great afternoon..</p> --}}
-                                </div>
-                                {{-- <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a> --}}
-                            </li>
-                            <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/team-3.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Nick Daniel</h6>
-                                    {{-- <p class="mb-0 text-xs">Hi! I need more information..</p> --}}
-                                </div>
-                                {{-- <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a> --}}
-                            </li>
+
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3 text-center">
-                {{-- <img src="../../../assets/img/confeti2.png" alt="Right Image" class="img-fluid"> --}}
-            </div>
+
         </div>
     </div>
 @endsection
@@ -954,10 +972,9 @@
     <script>
         function scrollLeftFunction() {
             let container = document.getElementById('cardContainer');
-            // Cek apakah bisa scroll ke kiri
             if (container.scrollLeft > 0) {
                 container.scrollBy({
-                    left: -200, // Adjust the scroll amount as needed
+                    left: -200,
                     behavior: 'smooth'
                 });
             }
@@ -965,13 +982,32 @@
 
         function scrollRightFunction() {
             let container = document.getElementById('cardContainer');
-            // Cek apakah bisa scroll ke kanan
             if (container.scrollLeft + container.clientWidth < container.scrollWidth) {
                 container.scrollBy({
-                    left: 200, // Adjust the scroll amount as needed
+                    left: 200,
                     behavior: 'smooth'
                 });
             }
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-effect');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Elemen akan mulai muncul saat 10% terlihat
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
     </script>
 @endsection
