@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -45,7 +46,7 @@ class LoginController extends Controller
                     'session_id' => $request->session()->getId(),
 
                 ]);
-                
+
                 return redirect()
                     ->route('dashboard.index')
                     ->with('success', $messageSuccess);
