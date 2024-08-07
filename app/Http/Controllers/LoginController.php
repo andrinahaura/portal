@@ -34,6 +34,18 @@ class LoginController extends Controller
             // Attempt web login if not using LDAP
             if ($this->attemptWebLogin($identity, $password)) {
                 $request->session()->put('user', $identity);
+                $id = auth()->user()->id;
+                $user =  User::find($id);
+
+                $user->update([
+                    'last_ip' => $request->getClientIp(),
+                    'last_login' => Carbon::now()->format('d-m-Y'),
+                    'last_access' => Carbon::now()->format('d-m-Y'),
+                    'user_agent' => $request->server('HTTP_USER_AGENT'),
+                    'session_id' => $request->session()->getId(),
+
+                ]);
+                
                 return redirect()
                     ->route('dashboard.index')
                     ->with('success', $messageSuccess);

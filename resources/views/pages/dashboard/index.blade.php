@@ -179,11 +179,20 @@
 @section('navbar')
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
+        @php $userCompanyId = auth()->user()->company_id; @endphp
         <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
             <div class="container-fluid py-1 fade-effect">
                 <a class="navbar-brand" href="#">
+                    @if ($userCompanyId == 1)
                     <img class="brand-logo" src="../../assets/img/logo_antvgo_blank.png" width="60" height="60"
-                        alt="Brand Logo">
+                    alt="Brand Logo">
+                    @elseif ($userCompanyId == 2)
+                    <img class="brand-logo" src="../../assets/img/logo_tvOne_blank.png" width="60" height="60"
+                    alt="Brand Logo">
+                    @elseif ($userCompanyId == 3)
+                    <img class="brand-logo" src="../../assets/img/logo_vivat_blank.png" width="60" height="60"
+                    alt="Brand Logo">
+                    @endif
                 </a>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-2 ps-2 me-sm-6 me-5">
@@ -250,8 +259,6 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection
@@ -261,7 +268,7 @@
         <div class="container-fluid">
             <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect"
                 data-delay="200">
-                <img src="./assets/img/logo_antvgo_motto.png" alt="Logo" class="banner-img"
+                <img src="{{ url('storage/uploads/banner/' . $banner->image) }}" alt="Logo" class="banner-img"
                     style="max-width: 30%; height: 30%;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
             </div>
@@ -271,17 +278,17 @@
 
 
     <h3 class="text-center mt-3 mb-2 fade-effect" data-delay="400">What's On</h3>
-    <div class="carousel-container mt-3 fade-effect" style="position: relative; display: flex; align-items: center;"
+    <div class="carousel-container mt-3 container-fluid" style="position: relative; display: flex; align-items: center;justify-content:center;"
         data-delay="600">
-        <button class="arrow-btn fade-effect" onclick="scrollLeftFunction()">
+        {{-- <button class="arrow-btn fade-effect" onclick="scrollLeftFunction()">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#344767">
                 <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
             </svg>
-        </button>
+        </button> --}}
         <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
             @php $delay = 0; @endphp
-            @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as $index)
-                <div class="col-lg-2 col-md-4 mb-4 fade-effect" data-delay="{{ $delay * 4 }}">
+            @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as $index )
+                <div class="col-lg-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
                     <div class="card card-profile card-plain"
                         style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                         data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
@@ -313,19 +320,19 @@
                 @php $delay += 100; @endphp
             @endforeach
         </div>
-        <button class="arrow-btn" onclick="scrollRightFunction()">
+        {{-- <button class="arrow-btn" onclick="scrollRightFunction()">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
                 fill="#344767">
                 <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
             </svg>
-        </button>
+        </button> --}}
     </div>
 
-    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="1000">Menu</h3>
+    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="100">Menu</h3>
     <div class="container-fluid fade-effect">
         <div class="row">
             <div class="col-lg-12 position-relative">
-                <div class="row">
+                <div class="row justify-content-center">
                     @php
                         $totalDashboardItems = count($dashboard);
                     @endphp
@@ -385,13 +392,11 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="1200">Today's Birthday</h3>
-    <div class="container-fluid fade-effect" data-delay="1400">
+    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
+    <div class="container-fluid fade-effect" data-delay="500">
         <div class="row justify-content-center align-items-center">
-
-            <div class="col-12 col-lg-6 mt-lg-0 mt-4">
+            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
                 <div class="card h-100">
-
                     <div class="card-body p-3">
                         <ul class="list-group">
                             <li class="list-group-item border-0 d-flex align-items-center px-0">
@@ -403,15 +408,69 @@
                                     <h6 class="mb-0 text-sm">Sophie B.</h6>
                                     <p class="mb-0 text-xs">Hi! I need more information..</p>
                                 </div>
-                                {{-- <a class="btn btn-link pe-3 ps-0 mb-0 ms-auto" href="javascript:;">Reply</a> --}}
                             </li>
-
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex align-items-center px-0">
+                                <div class="avatar avatar-xl position-relative me-3">
+                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg shadow">
+                                </div>
+                                <div class="d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">John D.</h6>
+                                    <p class="mb-0 text-xs">Can you provide more details?</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
+            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex align-items-center px-0">
+                                <div class="avatar avatar-xl position-relative me-3">
+                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg shadow">
+                                </div>
+                                <div class="d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">John D.</h6>
+                                    <p class="mb-0 text-xs">Can you provide more details?</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex align-items-center px-0">
+                                <div class="avatar avatar-xl position-relative me-3">
+                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg shadow">
+                                </div>
+                                <div class="d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">John D.</h6>
+                                    <p class="mb-0 text-xs">Can you provide more details?</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+        
+        
     </div>
 @endsection
 

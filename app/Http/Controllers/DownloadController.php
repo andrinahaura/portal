@@ -14,8 +14,16 @@ class DownloadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $fileTypes = FileType::with('files')->get();  
+    {   
+        $userCompanyId = auth()->user()->company_id;
+
+        // $fileTypes = FileType::with('files')
+            
+        //     ->get();  
+        $fileTypes = FileType::with(['files' => function ($query) use ($userCompanyId) {
+        $query->where('company_id', $userCompanyId);
+    }])
+    ->get();
  
         return view('pages.download.index', compact('fileTypes') );
     }

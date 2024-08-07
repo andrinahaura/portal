@@ -26,6 +26,15 @@ class User extends Authenticatable
         'nickname',
         'employee_id',
         'email',
+        'company_id',
+        'last_ip',
+        'last_login',
+        'last_access',
+        'session_id',
+        'user_agent',
+        'visit',
+        'created_by',
+        'updated_by'
     ];
 
     /**

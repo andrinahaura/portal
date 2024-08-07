@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dashboard;
 use App\Models\MetaMenu;
+use App\Models\Banner;
 
 class DashboardController extends Controller
 {
@@ -16,10 +17,33 @@ class DashboardController extends Controller
     public function index()
     {
         $userId = auth()->user()->id;
-        $dashboard = Dashboard::where('menu_type', 'main')->get();
+        $userCompanyId = auth()->user()->company_id;
+        // $dashboard = Dashboard::where('menu_type', 'main')
+        //     ->where('company_id',$userCompanyId)
+        //     ->get();
+        $banner = Banner::where('company_id',$userCompanyId)->first()->get();
+        $dashboard = Dashboard::where(function($query) use ($userCompanyId) {
+            $query->where('menu_type', 'main')
+                  ->where(function($query) use ($userCompanyId) {
+                      $query->whereNull('company_id')
+                            ->orWhere('company_id', $userCompanyId);
+                  });
+        })
+        ->orWhere(function($query) use ($userCompanyId) {
+            $query->where('menu_type', 'external')
+                  ->where('company_id', $userCompanyId);
+        })
+        ->where('publish', 1)
+        ->orderBy('name', 'asc')
+        ->get();
+
+
+
+
+
         $menus = MetaMenu::with('menu')->where('user_id', $userId)->get();
         
-        return view('pages.dashboard.index', compact('dashboard', 'menus'));
+        return view('pages.dashboard.index', compact('dashboard', 'menus','banner'));
     }
 
     /**

@@ -38,12 +38,13 @@
         {{-- begin::content --}}
         <div class="container-fluid py-4">
             @yield('content')
-            @include('layouts.partials.footer')
+            {{-- @include('layouts.partials.footer') --}}
             @yield('footer')
         </div>
         {{-- end::content --}}
 
     </main>
+    @include('layouts.partials.footer')
     
 
 

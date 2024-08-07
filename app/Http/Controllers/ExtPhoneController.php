@@ -20,13 +20,17 @@ class ExtPhoneController extends Controller
     // }
 
     public function index(Request $request)
-    {
+    {   
+        $userCompanyId = auth()->user()->company_id;
         $department = $request->input('department');
         
         if ($department) {
-            $phones = Phone::where('department', $department)->get();
+            $phones = Phone::where('department', $department)
+            ->where('company_id',$userCompanyId)
+            ->get();
         } else {
-            $phones = Phone::all();
+            $phones = Phone::where('company_id',$userCompanyId)
+            ->get();
         }
 
         $departments = Phone::select('department')->distinct()->pluck('department');
