@@ -269,7 +269,7 @@
             <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect"
                 data-delay="200">
                 @foreach ($banners as $banner )
-                <img src="{{ url('storage/uploads/banner/' . $banner->image)}}" alt="Logo" class="banner-img"
+                <img src="{{ env('URL_FILE') . $banner->image_dir }}" alt="Logo" class="banner-img"
                 style="max-width: 30%; height: 30%;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 @endforeach
