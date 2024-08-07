@@ -42,7 +42,7 @@ class DashboardController extends Controller
 
         $banners = Banner::where('company_id',$userCompanyId)
             ->where('publish', 1)
-            ->get();
+            ->first();
         $menus = MetaMenu::with('menu')->where('user_id', $userId)->get();
         
         
