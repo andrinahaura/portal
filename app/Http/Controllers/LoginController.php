@@ -34,7 +34,8 @@ class LoginController extends Controller
 
             // Attempt web login if not using LDAP
             if ($this->attemptWebLogin($identity, $password)) {
-                $request->session()->put('user', $identity);
+                
+
                 $id = auth()->user()->id;
                 $user =  User::find($id);
 
@@ -46,7 +47,7 @@ class LoginController extends Controller
                     'session_id' => $request->session()->getId(),
 
                 ]);
-
+                
                 return redirect()
                     ->route('dashboard.index')
                     ->with('success', $messageSuccess);

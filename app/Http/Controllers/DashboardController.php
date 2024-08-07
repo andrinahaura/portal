@@ -21,7 +21,7 @@ class DashboardController extends Controller
         // $dashboard = Dashboard::where('menu_type', 'main')
         //     ->where('company_id',$userCompanyId)
         //     ->get();
-        $banner = Banner::where('company_id',$userCompanyId)->first()->get();
+        
         $dashboard = Dashboard::where(function($query) use ($userCompanyId) {
             $query->where('menu_type', 'main')
                   ->where(function($query) use ($userCompanyId) {
@@ -40,10 +40,13 @@ class DashboardController extends Controller
 
 
 
-
+        $banners = Banner::where('company_id',$userCompanyId)
+            ->where('publish', 1)
+            ->get();
         $menus = MetaMenu::with('menu')->where('user_id', $userId)->get();
         
-        return view('pages.dashboard.index', compact('dashboard', 'menus','banner'));
+        
+        return view('pages.dashboard.index', compact('dashboard', 'menus','banners'));
     }
 
     /**

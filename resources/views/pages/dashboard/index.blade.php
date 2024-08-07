@@ -268,9 +268,12 @@
         <div class="container-fluid">
             <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect"
                 data-delay="200">
-                <img src="{{ url('storage/uploads/banner/' . $banner->image) }}" alt="Logo" class="banner-img"
-                    style="max-width: 30%; height: 30%;">
+                @foreach ($banners as $banner )
+                <img src="{{ url('storage/uploads/banner/' . $banner->image)}}" alt="Logo" class="banner-img"
+                style="max-width: 30%; height: 30%;">
                 <span class="mask bg-gradient-primary opacity-6"></span>
+                @endforeach
+                
             </div>
         </div>
     </div>
@@ -394,6 +397,7 @@
     </div>
     <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
     <div class="container-fluid fade-effect" data-delay="500">
+
         <div class="row justify-content-center align-items-center">
             <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
                 <div class="card h-100">
