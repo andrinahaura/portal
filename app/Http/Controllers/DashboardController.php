@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Dashboard;
 use App\Models\MetaMenu;
 use App\Models\Banner;
+use GuzzleHttp\Client;
 
 class DashboardController extends Controller
 {
@@ -21,32 +22,58 @@ class DashboardController extends Controller
         // $dashboard = Dashboard::where('menu_type', 'main')
         //     ->where('company_id',$userCompanyId)
         //     ->get();
-        
+
         $dashboard = Dashboard::where(function($query) use ($userCompanyId) {
             $query->where('menu_type', 'main')
                   ->where(function($query) use ($userCompanyId) {
                       $query->whereNull('company_id')
                             ->orWhere('company_id', $userCompanyId);
-                  });
+                  })
+                  ->where('publish', 1);
         })
-        ->orWhere(function($query) use ($userCompanyId) {
-            $query->where('menu_type', 'external')
-                  ->where('company_id', $userCompanyId);
-        })
-        ->where('publish', 1)
         ->orderBy('name', 'asc')
         ->get();
+    
+    
+        
+
+        // return $this->getWhatson();
 
 
-
-
-        $banners = Banner::where('company_id',$userCompanyId)
+        $banners = Banner::where('company_id', $userCompanyId)
             ->where('publish', 1)
             ->first();
-        $menus = MetaMenu::with('menu')->where('user_id', $userId)->get();
+            
+        $menus = MetaMenu::with('menu')
+            ->where('user_id', $userId)
+            ->get();
+
         
-        
-        return view('pages.dashboard.index', compact('dashboard', 'menus','banners'));
+        return view('pages.dashboard.index', compact('dashboard', 'menus', 'banners'));
+    }
+
+    public function getWhatson()
+    {
+        $apiUrl = env("URL_WHATSON");
+        $client = new Client();
+
+        try {
+            $response = $client->post(
+                $apiUrl . '/antv/blast/blasts',
+                [
+                    'employee_id' => 5281,
+                    'ip' => '0.0.0.0',
+                ]
+            );
+
+            // Get the response body as an array
+            $data = json_decode($response->getBody(), true);
+
+            return $data;
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th;
+        }
     }
 
     /**

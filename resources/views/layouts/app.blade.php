@@ -18,8 +18,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+    {{-- <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png"> --}}
+    @php $userCompanyId = auth()->user()->company_id; @endphp
+
+
+    @if ($userCompanyId == 3100)
+        <link rel="icon" type="image/png" href="../../assets/img/logo_antvgo_blank.png">
+    @elseif($userCompanyId == 2)
+        <link rel="icon" type="image/png" href="../../assets/img/logo_tvOne_blank.png">
+    @elseif($userCompanyId == 3112)
+        <link rel="icon" type="image/png" href="../../assets/img/logo_vivat_blank.png">
+    @else
+
+    @endif
     <title>@yield('title', 'PORTAL VIVAT')</title>
     @include('layouts.partials.styles')
     @yield('styles')

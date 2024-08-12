@@ -183,13 +183,13 @@
         <nav class="navbar navbar-main navbar-expand-lg bg-transparent shadow-none position-absolute px-4 w-100 z-index-2">
             <div class="container-fluid py-1 fade-effect">
                 <a class="navbar-brand" href="#">
-                    @if ($userCompanyId == 1)
+                    @if ($userCompanyId == 3100)
                     <img class="brand-logo" src="../../assets/img/logo_antvgo_blank.png" width="60" height="60"
                     alt="Brand Logo">
                     @elseif ($userCompanyId == 2)
                     <img class="brand-logo" src="../../assets/img/logo_tvOne_blank.png" width="60" height="60"
                     alt="Brand Logo">
-                    @elseif ($userCompanyId == 3)
+                    @elseif ($userCompanyId == 3112)
                     <img class="brand-logo" src="../../assets/img/logo_vivat_blank.png" width="60" height="60"
                     alt="Brand Logo">
                     @endif
@@ -243,7 +243,7 @@
                                 {{ auth()->user()->username }}
                             </h5>
                             <p class="mb-0 font-weight-bold text-sm">
-                                Department
+                                {{ auth()->user()->department }}
                             </p>
                         </div>
                     </div>
@@ -269,8 +269,8 @@
             <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect"
                 data-delay="200">
                 {{-- @foreach ($banners as $banner ) --}}
-                <img src="{{ env('URL_FILE') . $banners->image_dir }}" alt="Logo" class="banner-img"
-                style="max-width: 30%; height: 30%;">
+                {{-- <img src="{{ env('URL_FILE') . $banners->image_dir }}" alt="Logo" class="banner-img"
+                style="max-width: 30%; height: 30%;"> --}}
                 <span class="mask bg-gradient-primary opacity-6"></span>
                 {{-- @endforeach --}}
                 
@@ -310,8 +310,9 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="imageModalLabel{{ $index }}">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                                </button>
                             </div>
                             <div class="modal-body text-center">
                                 <img class="w-100 border-radius-md"
@@ -343,8 +344,7 @@
                     @foreach ($dashboard as $index => $dashboardItem)
                         <div class="col-lg-2 col-md-4 col-6 mt-sm-0 mt-4 fade-effect" data-delay="{{ $index * 100 }}">
                             <div class="card-dashboard mb-4">
-                                <a href="{{ route('download.index') }}"
-                                    class="card-body p-3 text-decoration-none text-dark">
+                                <a href="{{ route('' . $dashboardItem->router . '') }}" class="card-body p-3 text-decoration-none text-dark">
                                     <div class="row">
                                         <div class="col-12 text-center">
                                             <div

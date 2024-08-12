@@ -25,9 +25,9 @@ use App\Http\Controllers\MyProgramController;
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::group(['middleware' => 'auth'], function () {
-Route::resource('download', DownloadController::class);
+Route::get('download', [DownloadController::class, 'index'])->name('download.index');
 
-Route::resource('extphone', ExtPhoneController::class);
+Route::get('extphone', [ExtPhoneController::class, 'index'])->name('extphone.index');
 
 Route::get('booking-meeting', [MyProgramController::class, 'booking_meeeting'])->name('program.booking_meeting');
 
