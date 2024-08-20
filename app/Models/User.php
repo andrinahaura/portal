@@ -27,6 +27,8 @@ class User extends Authenticatable
         'nickname',
         'employee_id',
         'email',
+        'department',
+        'birthday',
         'company_id',
         'last_ip',
         'last_login',

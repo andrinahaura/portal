@@ -248,14 +248,26 @@
                         </div>
                     </div>
                     <div class="col-auto d-flex align-items-center">
+                        @if ($userCompanyId == 3100)
                         <a href="https://link-to-page1.com" class="avatar avatar-xl position-relative me-3" target="_blank">
-                            <img src="../../../assets/img/vivat-go.png" alt="profile_image"
+                            <img src="../../../assets/img/Logo_antvgo.png" alt="profile_image"
+                                class="w-100 border-radius-lg shadow-sm">
+                        </a>
+                        @elseif ($userCompanyId == 2)
+                        <a href="https://link-to-page2.com" class="avatar avatar-xl position-relative" target="_blank">
+                            <img src="../../../assets/img/logo_tvone.png" alt="profile_image"
+                                class="w-100 border-radius-lg shadow-sm">
+                        </a>
+                        @elseif ($userCompanyId == 3112)
+                        <a href="https://link-to-page1.com" class="avatar avatar-xl position-relative me-3" target="_blank">
+                            <img src="../../../assets/img/Logo_antvgo.png" alt="profile_image"
                                 class="w-100 border-radius-lg shadow-sm">
                         </a>
                         <a href="https://link-to-page2.com" class="avatar avatar-xl position-relative" target="_blank">
-                            <img src="../../../assets/img/vivat-go.png" alt="profile_image"
+                            <img src="../../../assets/img/logo_tvone.png" alt="profile_image "
                                 class="w-100 border-radius-lg shadow-sm">
                         </a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -288,10 +300,11 @@
                 <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
             </svg>
         </button> --}}
+        
         <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
             @php $delay = 0; @endphp
             @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as $index )
-                <div class="col-lg-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
+                <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
                     <div class="card card-profile card-plain"
                         style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                         data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
@@ -409,8 +422,8 @@
                                         class="border-radius-lg shadow">
                                 </div>
                                 <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Sophie B.</h6>
-                                    <p class="mb-0 text-xs">Hi! I need more information..</p>
+                                    <h6 class="mb-0 text-sm">Name</h6>
+                                    <p class="mb-0 text-xs">Department</p>
                                 </div>
                             </li>
                         </ul>
@@ -427,27 +440,8 @@
                                         class="border-radius-lg shadow">
                                 </div>
                                 <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">John D.</h6>
-                                    <p class="mb-0 text-xs">Can you provide more details?</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body p-3">
-                        <ul class="list-group">
-                            <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">John D.</h6>
-                                    <p class="mb-0 text-xs">Can you provide more details?</p>
+                                    <h6 class="mb-0 text-sm">Name</h6>
+                                    <p class="mb-0 text-xs">Department</p>
                                 </div>
                             </li>
                         </ul>
@@ -464,8 +458,26 @@
                                         class="border-radius-lg shadow">
                                 </div>
                                 <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">John D.</h6>
-                                    <p class="mb-0 text-xs">Can you provide more details?</p>
+                                    <h6 class="mb-0 text-sm">Name</h6>
+                                    <p class="mb-0 text-xs">Department</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body p-3">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 d-flex align-items-center px-0">
+                                <div class="avatar avatar-xl position-relative me-3">
+                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
+                                        class="border-radius-lg shadow">
+                                </div>
+                                <div class="d-flex align-items-start flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">Name</h6>
+                                    <p class="mb-0 text-xs">Department</p>
                                 </div>
                             </li>
                         </ul>
