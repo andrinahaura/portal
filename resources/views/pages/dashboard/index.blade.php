@@ -408,64 +408,11 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
-    <div class="container-fluid fade-effect" data-delay="500">
 
+    <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
+ 
+    <div class="container-fluid fade-effect" data-delay="500">
         <div class="row justify-content-center align-items-center">
-            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body p-3">
-                        <ul class="list-group">
-                            <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Name</h6>
-                                    <p class="mb-0 text-xs">Department</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body p-3">
-                        <ul class="list-group">
-                            <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Name</h6>
-                                    <p class="mb-0 text-xs">Department</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
-                <div class="card h-100">
-                    <div class="card-body p-3">
-                        <ul class="list-group">
-                            <li class="list-group-item border-0 d-flex align-items-center px-0">
-                                <div class="avatar avatar-xl position-relative me-3">
-                                    <img src="../../../assets/img/kal-visuals-square.jpg" alt="kal"
-                                        class="border-radius-lg shadow">
-                                </div>
-                                <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Name</h6>
-                                    <p class="mb-0 text-xs">Department</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body p-3">

@@ -79,9 +79,9 @@ $footers = Footer::where('company_id', $userCompanyId)->first();
               </div>
           </div> --}}
           {{-- <div class="col-12 col-sm-4 col-md-3"> --}}
-              <div class="col-12 col-md-4 d-flex flex-wrap justify-content-center   align-items-center mt-4">
+              <div class="col-12 col-md-4 d-flex flex-wrap justify-content-center align-items-center mt-4">
                 
-                <a  class="d-flex mb-3 justify-content-center me-3" target="_blank" href="">
+                <a  class="d-flex mb-3 justify-content-center me-3" target="_blank" href=" ">
                   <div class="col-1 me-1 text-white">
                     <i class="fas fa-phone"></i>
                   </div>
@@ -97,25 +97,25 @@ $footers = Footer::where('company_id', $userCompanyId)->first();
                   <div class="col-1  me-1 text-white">
                     <i class="fab fa-twitter"></i>
                   </div>
-                  <div class="text-white ms-2">@vivatofficials</div>
+                  <div class="text-white ms-2">{{ $footers->twitter }}</div>
                 </a>
                 <a  class="d-flex mb-3 justify-content-center me-3" target="_blank" href="">
                   <div class="col-1  me-1 text-white">
                     <i class="fab fa-tiktok"></i>
                   </div>
-                  <div class="text-white ms-2">@vivatofficials</div>
+                  <div class="text-white ms-2">{{ $footers->tiktok }}</div>
                 </a>
                 <a  class="d-flex mb-3 justify-content-center me-3" target="_blank" href="">
                   <div class="col-1  me-1 text-white">
                     <i class="fab fa-youtube"></i>
                   </div>
-                  <div class="text-white ms-2">@vivatofficials</div>
+                  <div class="text-white ms-2">{{ $footers->youtube }}</div>
                 </a>
                 <a  class="d-flex mb-3 justify-content-center me-3" target="_blank" href="">
                   <div class="col-1  me-1 text-white">
                     <i class="fab fa-instagram"></i>
                   </div>
-                  <div class="text-white ms-2">@vivatofficials</div>
+                  <div class="text-white ms-2">{{ $footers->instagram }}</div>
                 </a>
 
               </div>
