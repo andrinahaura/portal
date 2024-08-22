@@ -323,8 +323,8 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="imageModalLabel{{ $index }}">What's on</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#344767"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                                <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="modal" aria-label="Close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#344767"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                                 </button>
                             </div>
                             <div class="modal-body text-center">
@@ -408,11 +408,16 @@
             </div>
         </div>
     </div>
-
+    @if ($birthdays->isNotEmpty())
     <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
- 
+    @endif
+    
+    
+        
+   
     <div class="container-fluid fade-effect" data-delay="500">
         <div class="row justify-content-center align-items-center">
+            @foreach ($birthdays as $birthday)
             <div class="col-12 col-lg-4 mt-lg-0 mt-4 mb-4">
                 <div class="card h-100">
                     <div class="card-body p-3">
@@ -423,18 +428,18 @@
                                         class="border-radius-lg shadow">
                                 </div>
                                 <div class="d-flex align-items-start flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">Name</h6>
-                                    <p class="mb-0 text-xs">Department</p>
+                                    <h6 class="mb-0 text-sm">{{$birthday->name}}</h6>
+                                    <p class="mb-0 text-xs">{{$birthday->department_name}}</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        
-        
     </div>
+    
 @endsection
 
 

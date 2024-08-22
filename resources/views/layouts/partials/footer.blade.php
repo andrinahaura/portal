@@ -49,7 +49,7 @@ $footers = Footer::where('company_id', $userCompanyId)->first();
 </footer> --}}
 <footer class="footer pt-3 bg-gradient-primary mt-2">
   <div class="container">
-      <div class="row align-items-center py-4 d-flex flex-column flex-sm-row justify-content-center justify-content-md-start pt-3 pt-md-4 px-md-5 px-0"> 
+      <div class="row align-items-center py-2 d-flex flex-column flex-sm-row justify-content-center justify-content-md-start pt-2 pt-md-4 px-md-5 px-0"> 
   
           <div class="col-12 col-md-8 d-flex align-items-center flex-wrap justify-content-center justify-content-md-start">
               <img src="../../assets/img/logo_antvgo_blank.png" alt="Company Logo" class="me-3" width="100" height="100">

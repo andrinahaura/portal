@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Dashboard;
 use App\Models\MetaMenu;
 use App\Models\Banner;
+use App\Models\Hcis\Employee;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
+
 
 class DashboardController extends Controller
 {
@@ -48,8 +51,19 @@ class DashboardController extends Controller
             ->where('user_id', $userId)
             ->get();
 
+        $today = Carbon::now()->format('d/m'); // 'd/m' format
+
+            // Query to get employees who have a birthday today
+            $birthdays = Employee::select('name', 'department_name', 'birth_day')
+            ->where('company', $userCompanyId)
+            ->whereRaw("TO_CHAR(TO_DATE(birth_day, 'DD/MM/YYYY'), 'DD/MM') = ?", [$today])
+            ->get();
+
+            
+        return view('pages.dashboard.index', compact('dashboard', 'menus', 'banners', 'birthdays'));
         
-        return view('pages.dashboard.index', compact('dashboard', 'menus', 'banners'));
+        
+        
     }
 
     public function getWhatson()
