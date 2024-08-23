@@ -47,6 +47,7 @@ class DashboardController extends Controller
             ->where('publish', 1)
             ->first();
             
+
         $menus = MetaMenu::with('menu')
             ->where('user_id', $userId)
             ->get();
