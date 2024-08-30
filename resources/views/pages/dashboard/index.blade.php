@@ -64,9 +64,7 @@
 
         .card-dashboard:hover {
             transform: translateY(-5px);
-            /* Menggeser card ke atas */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            /* Bayangan lebih kuat */
         }
 
         @media (min-width: 992px) {
@@ -173,6 +171,8 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        
     </style>
 @endsection
 
@@ -276,19 +276,38 @@
 @endsection
 
 @section('content')
+    {{-- <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 fade-effect" data-delay="0">
+        <div class="container-fluid">
+            <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect" data-delay="200"> 
+                <img src="{{ $banners->image_dir ? env('URL_FILE') . $banners->image_dir : 'path/to/default-image.jpg' }}" alt="Logo" class="banner-img"
+                style="max-width: 30%; height: 30%;">
+                <span class="mask bg-gradient-primary opacity-6"></span>  
+            </div>
+        </div>
+    </div> --}}
+
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 fade-effect" data-delay="0">
         <div class="container-fluid">
-            <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect"
-                data-delay="200">
-            
-                <img src="{{ env('URL_FILE') . $banners->image_dir }}" alt="Logo" class="banner-img"
-                style="max-width: 30%; height: 30%;">
+            <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect" data-delay="200">
+                {{-- <img src="{{ !empty($banners->image_dir) ? env('URL_FILE') . $banners->image_dir : asset('path/to/default-image.jpg') }}" alt="Logo" class="banner-img" style="max-width: 30%; height: 30%;"> --}}
+                @if (!empty($banners->image_dir))
+                <img 
+                    src="{{ env('URL_FILE') . $banners->image_dir }}" 
+                    alt="Logo" 
+                    class="banner-img" 
+                    style="max-width: 30%; height: 30%;">
+                @else
+                <img 
+                    src="{{ asset('path/to/default-image.jpg') }}" 
+                    alt="Default Logo" 
+                    class="banner-img" 
+                    style="max-width: 30%; height: 30%;">
+                @endif
                 <span class="mask bg-gradient-primary opacity-6"></span>
-                
-                
             </div>
         </div>
     </div>
+    
 
 
 
@@ -303,39 +322,49 @@
         
         <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
             @php $delay = 0; @endphp
-            @foreach ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as $index )
-                <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
-                    <div class="card card-profile card-plain"
-                        style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
-                        data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
-                        <div class="card-body text-center bg-white shadow border-radius-lg p-3" style="padding: 0;">
-                            <a href="javascript:;" style="cursor: pointer; display: block; height: 100%;">
-                                <img class="w-100 h-100 border-radius-md"
-                                    src="./assets/img/{{ $index <= 6 ? 'banner.jpeg' : 'vivat-go.png' }}"
-                                    style="object-fit: cover; background-position: 50%; background-size: cover;">
-                            </a>
+            @foreach ($whatsons as $index => $whatson )
+            <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3 d-flex justify-content-center" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; height: auto;">
+                            <img class="w-100 h-100 border-radius-md"
+                                src="{{ $whatson['cover']}}" alt="{{ $whatson['title']}}"
+                                style="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageModal{{ $index }}" tabindex="-1"
+                aria-labelledby="imageModalLabel{{ $index }}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="imageModalLabel{{ $index }}">What's on</h5>
+                            <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="modal" aria-label="Close">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#344767"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="w-100 border-radius-md"
+                                src="{{ $whatson['img']}}" alt="{{ $whatson['title']}}">
                         </div>
                     </div>
                 </div>
-                <div class="modal fade" id="imageModal{{ $index }}" tabindex="-1"
-                    aria-labelledby="imageModalLabel{{ $index }}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="imageModalLabel{{ $index }}">What's on</h5>
-                                <button type="button" class="btn-close d-flex align-items-center" data-bs-dismiss="modal" aria-label="Close">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="#344767"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-                                </button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img class="w-100 border-radius-md"
-                                    src="./assets/img/{{ $index <= 6 ? 'banner.jpeg' : 'vivat-go.png' }}">
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            @php $delay += 100; @endphp
+        @endforeach 
+
+            <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
+                <div class="card card-profile card-plain d-flex align-items-center justify-content-center"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;">
+                    <a href="{{ route('whatson.index') }}" class="d-flex align-items-center justify-content-center"
+                       style="width: 100%; height: 100%; text-decoration: none;">
+                        <span class="text-center" style="font-size: 1.5rem; color: #333;">See More</span>
+                    </a>
                 </div>
-                @php $delay += 100; @endphp
-            @endforeach
+            </div>
         </div>
         {{-- <button class="arrow-btn" onclick="scrollRightFunction()">
             <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px"
@@ -343,6 +372,7 @@
                 <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
             </svg>
         </button> --}}
+        
     </div>
 
     <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="100">Menu</h3>
@@ -408,13 +438,11 @@
             </div>
         </div>
     </div>
+
     @if ($birthdays->isNotEmpty())
     <h3 class="text-center mt-2 mb-3 fade-effect" data-delay="500">Today's Birthday</h3>
     @endif
     
-    
-        
-   
     <div class="container-fluid fade-effect" data-delay="500">
         <div class="row justify-content-center align-items-center">
             @foreach ($birthdays as $birthday)

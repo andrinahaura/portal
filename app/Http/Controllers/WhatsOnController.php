@@ -3,16 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Dashboard;
-use App\Models\MetaMenu;
-use App\Models\Banner;
-use App\Models\Hcis\Employee;
-use Carbon\Carbon;
-use GuzzleHttp\Client;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 
-class DashboardController extends Controller
+class WhatsOnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,46 +14,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $userId = auth()->user()->id;
-        $userCompanyId = auth()->user()->company_id;
-        // $dashboard = Dashboard::where('menu_type', 'main')
-        //     ->where('company_id',$userCompanyId)
-        //     ->get();
-
-        $dashboard = Dashboard::where(function ($query) use ($userCompanyId) {
-            $query->where('menu_type', 'main')
-                ->where(function ($query) use ($userCompanyId) {
-                    $query->whereNull('company_id')
-                        ->orWhere('company_id', $userCompanyId);
-                })
-                ->where('publish', 1);
-        })
-            ->orderBy('name', 'asc')
-            ->get();
-
-
-
-
-        $banners = Banner::where('company_id', $userCompanyId)
-            ->where('publish', 1)
-            ->first();
-
-
-        $menus = MetaMenu::with('menu')
-            ->where('user_id', $userId)
-            ->get();
-
-        $today = Carbon::now()->format('d/m'); 
-
-        $birthdays = Employee::select('name', 'department_name', 'birth_day')
-            ->where('company', $userCompanyId)
-            ->whereRaw("TO_CHAR(TO_DATE(birth_day, 'DD/MM/YYYY'), 'DD/MM') = ?", [$today])
-            ->get();
-
         $data = $this->getWhatson();
-        $whatsons = array_slice($data['detail'], 0, 8);
+        $whatsons = $data['detail'];
 
-        return view('pages.dashboard.index', compact('dashboard', 'menus', 'banners', 'birthdays', 'whatsons'));
+        return view('pages.whatson.index', compact('whatsons'));
     }
 
     public function getWhatson()

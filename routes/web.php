@@ -4,11 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ExtPhoneController;
-// use App\Http\Controllers\SignInController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MyProgramController;
-
-
+use App\Http\Controllers\WhatsOnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('download', [DownloadController::class, 'index'])->name('download.index');
 
 Route::get('extphone', [ExtPhoneController::class, 'index'])->name('extphone.index');
+
+Route::get('whatson', [WhatsOnController::class, 'index'])->name('whatson.index');
 
 Route::get('booking-meeting', [MyProgramController::class, 'booking_meeeting'])->name('program.booking_meeting');
 
@@ -94,6 +94,10 @@ Route::get('fleet-management', [MyProgramController::class, 'fleet_management'])
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 Route::post('/logout', 'App\Http\Controllers\LoginController@logout')->name('logout');
+
+Route::get('getwhatson', [DashboardController::class, 'getWhatson'])->name('dashboard.getWhatson');
+
+Route::get('getwhatson', [WhatsOnController::class, 'getWhatson'])->name('dashboard.getWhatson');
 
 });
 

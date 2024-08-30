@@ -25,7 +25,7 @@ class LoginController extends Controller
 
 
     public function login(Request $request)
-    { // Validate the request input
+    { 
         $request->validate([
             'identity' => 'required|max:50'
 
@@ -36,7 +36,6 @@ class LoginController extends Controller
             $password = trim($request->input('password'));
             $messageSuccess = 'Login successful';
 
-            //  pengecekan identity if @an.tv / @vivat.id
             if (preg_match('/@an\.tv/', $identity) || preg_match('/@vivat\.id/', $identity)) {
 
                 $connection = Container::getDefaultConnection();
@@ -110,12 +109,10 @@ class LoginController extends Controller
 
     private function attemptWebLogin($identity, $password)
     {
-        // Check if the identity is an email or username
         $user = User::where('email', $identity)
             ->orWhere('username', $identity)
             ->first();
 
-        // Verify the password and log in the user if the credentials are correct
         if ($user && Hash::check($password, $user->password)) {
             Auth::login($user);
             return true;
