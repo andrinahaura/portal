@@ -22,12 +22,18 @@ use App\Http\Controllers\WhatsOnController;
 
 // Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
+Route::middleware('guest:web')->group(function () {
+    Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
+});
+
 Route::group(['middleware' => 'auth'], function () {
 Route::get('download', [DownloadController::class, 'index'])->name('download.index');
 
 Route::get('extphone', [ExtPhoneController::class, 'index'])->name('extphone.index');
 
 Route::get('whatson', [WhatsOnController::class, 'index'])->name('whatson.index');
+
 
 Route::get('booking-meeting', [MyProgramController::class, 'booking_meeeting'])->name('program.booking_meeting');
 
@@ -101,10 +107,7 @@ Route::get('getwhatson', [WhatsOnController::class, 'getWhatson'])->name('dashbo
 
 });
 
-Route::middleware('guest:web')->group(function () {
-    Route::get('/login', [LoginController::class, 'loginForm'])->name('login');
-    Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
-});
+
 
 
 

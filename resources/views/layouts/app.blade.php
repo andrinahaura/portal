@@ -14,15 +14,10 @@
 <!DOCTYPE html>
 <html lang="en">
 {{-- begin::head --}}
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {{-- <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../../assets/img/favicon.png"> --}}
     @php $userCompanyId = auth()->user()->company_id; @endphp
-
-
     @if ($userCompanyId == 3100)
         <link rel="icon" type="image/png" href="../../assets/img/logo_antvgo_blank.png">
     @elseif($userCompanyId == 2)
@@ -30,7 +25,6 @@
     @elseif($userCompanyId == 3112)
         <link rel="icon" type="image/png" href="../../assets/img/logo_vivat_blank.png">
     @else
-
     @endif
     <title>@yield('title', 'PORTAL VIVAT')</title>
     @include('layouts.partials.styles')
@@ -38,11 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 {{-- end::head --}}
-
 <body class="g-sidenav-show  bg-gray-100">
-    {{-- begin::aside --}}
-    {{-- @include('layouts.partials.sidebar') --}}
-    {{-- end::aside --}}
     <main class="main-content position-relative  h-100 border-radius-lg ">
         <!-- begin::Navbar -->
         @yield('navbar')
@@ -50,18 +40,13 @@
         {{-- begin::content --}}
         <div class="container-fluid py-4">
             @yield('content')
-            {{-- @include('layouts.partials.footer') --}}
             @yield('footer')
         </div>
         {{-- end::content --}}
-
     </main>
     @include('layouts.partials.footer')
     
-
-
     @include('layouts.partials.scripts')
     @yield('scripts')
 </body>
-
 </html>

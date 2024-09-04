@@ -199,15 +199,6 @@
                         <h6 class="text-white font-weight-bolder ms-2">Dashboard</h6>
                     </ol>
                 </nav>
-                {{-- <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none">
-                    <a href="javascript:;" class="nav-link text-white p-0">
-                        <div class="sidenav-toggler-inner">
-                            <i class="sidenav-toggler-line bg-white"></i>
-                            <i class="sidenav-toggler-line bg-white"></i>
-                            <i class="sidenav-toggler-line bg-white"></i>
-                        </div>
-                    </a>
-                </div> --}}
                 <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
                     <ul class="navbar-nav justify-content-end ms-md-auto pe-md-3 d-flex align-items-center">
                         <li class="nav-item d-flex align-items-center">
@@ -276,20 +267,10 @@
 @endsection
 
 @section('content')
-    {{-- <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 fade-effect" data-delay="0">
-        <div class="container-fluid">
-            <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect" data-delay="200"> 
-                <img src="{{ $banners->image_dir ? env('URL_FILE') . $banners->image_dir : 'path/to/default-image.jpg' }}" alt="Logo" class="banner-img"
-                style="max-width: 30%; height: 30%;">
-                <span class="mask bg-gradient-primary opacity-6"></span>  
-            </div>
-        </div>
-    </div> --}}
-
+   
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100 fade-effect" data-delay="0">
         <div class="container-fluid">
             <div class="page-header min-height-100 border-radius-xl mt-4 bg-gradient-primary d-flex align-items-center justify-content-center fade-effect" data-delay="200">
-                {{-- <img src="{{ !empty($banners->image_dir) ? env('URL_FILE') . $banners->image_dir : asset('path/to/default-image.jpg') }}" alt="Logo" class="banner-img" style="max-width: 30%; height: 30%;"> --}}
                 @if (!empty($banners->image_dir))
                 <img 
                     src="{{ env('URL_FILE') . $banners->image_dir }}" 
