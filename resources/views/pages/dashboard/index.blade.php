@@ -304,7 +304,7 @@
         <div id="cardContainer" class="row flex-nowrap overflow-auto" style="white-space: nowrap;">
             @php $delay = 0; @endphp
             @foreach ($whatsons as $index => $whatson )
-            <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
+            {{-- <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
                 <div class="card card-profile card-plain"
                     style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
                     data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
@@ -316,7 +316,26 @@
                         </a>
                     </div>
                 </div>
+            </div> --}}
+           
+             <div class="col-lg-3 col-xl-2 col-md-4 col mb-4 fade-effect" data-delay="{{ $delay * 1 }}">
+                <div class="card card-profile card-plain"
+                    style="box-shadow: 8px 8px 0 rgba(168, 168, 168, 0.5); width: 200px; height: 300px;"
+                    data-bs-toggle="modal" data-bs-target="#imageModal{{ $index }}">
+                    <div class="card-body text-center bg-white shadow border-radius-lg p-3 d-flex justify-content-center align-items-center" style="padding: 0;">
+                        <a href="javascript:;" style="cursor: pointer; display: block; max-width: 100%; max-height: 100%; width: auto; height: auto;">
+                            <img class="border-radius-md"
+                                src="{{ $whatson['cover'] }}" alt="{{ $whatson['title'] }}"
+                                style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                        </a>
+                    </div>
+                </div>
             </div>
+
+          
+          
+            
+            
             <div class="modal fade" id="imageModal{{ $index }}" tabindex="-1"
                 aria-labelledby="imageModalLabel{{ $index }}" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">

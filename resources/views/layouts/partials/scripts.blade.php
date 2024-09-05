@@ -11,6 +11,7 @@
   <script src="../../assets/js/plugins/chartjs.min.js"></script>
   <script src="../../assets/js/plugins/threejs.js"></script>
   <script src="../../assets/js/plugins/orbit-controls.js"></script>
+  
   <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
